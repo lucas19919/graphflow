@@ -1,0 +1,25 @@
+{
+  "title": "Tool loop",
+  "sub": "The model asks, the tool answers, the ledger keeps the trace.",
+  "actors": [
+    {"id": "user", "name": "User", "tag": "USER"},
+    {"id": "agent", "name": "Agent", "tag": "SVC", "focal": true},
+    {"id": "model", "name": "Model", "tag": "SVC"},
+    {"id": "tools", "name": "Tools", "tag": "GATEWAY"},
+    {"id": "ledger", "name": "Ledger", "tag": "STORE"}
+  ],
+  "messages": [
+    {"from": "user", "to": "agent", "label": "Ask"},
+    {"from": "agent", "to": "model", "label": "Plan", "focal": true},
+    {"from": "model", "to": "agent", "label": "Call tool", "reply": true},
+    {"from": "agent", "to": "tools", "label": "Search", "proto": "https"},
+    {"from": "tools", "to": "agent", "label": "Passages", "reply": true},
+    {"from": "agent", "to": "model", "label": "Ground"},
+    {"from": "model", "to": "agent", "label": "Draft", "reply": true, "focal": true},
+    {"from": "agent", "to": "ledger", "label": "Record"},
+    {"from": "ledger", "to": "agent", "label": "Stored", "reply": true},
+    {"from": "agent", "to": "user", "label": "Answer", "reply": true},
+    {"from": "user", "to": "agent", "label": "Follow up"},
+    {"from": "agent", "to": "model", "label": "Revise"}
+  ]
+}

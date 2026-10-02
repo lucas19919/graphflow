@@ -1,0 +1,47 @@
+{
+  "title": "E-Commerce Core Schema",
+  "sub": "Primary tables, foreign key constraints, and status enums",
+  "eyebrow": "schema · postgres",
+  "tables": [
+    {
+      "id": "users",
+      "name": "users",
+      "tag": "AUTH",
+      "columns": [
+        {"name": "id", "type": "uuid", "pk": true},
+        {"name": "email", "type": "varchar(255)", "unique": true},
+        {"name": "full_name", "type": "varchar(100)"},
+        {"name": "created_at", "type": "timestamptz"}
+      ]
+    },
+    {
+      "id": "orders",
+      "name": "orders",
+      "tag": "CORE",
+      "focal": true,
+      "columns": [
+        {"name": "id", "type": "uuid", "pk": true},
+        {"name": "user_id", "type": "uuid", "fk": true},
+        {"name": "status", "type": "varchar(32)"},
+        {"name": "total_cents", "type": "integer"},
+        {"name": "created_at", "type": "timestamptz"}
+      ]
+    },
+    {
+      "id": "order_items",
+      "name": "order_items",
+      "tag": "CORE",
+      "columns": [
+        {"name": "id", "type": "uuid", "pk": true},
+        {"name": "order_id", "type": "uuid", "fk": true},
+        {"name": "sku", "type": "varchar(64)"},
+        {"name": "quantity", "type": "integer"},
+        {"name": "price_cents", "type": "integer"}
+      ]
+    }
+  ],
+  "relations": [
+    {"from": "users", "from_col": "id", "to": "orders", "to_col": "user_id", "label": "1:N"},
+    {"from": "orders", "from_col": "id", "to": "order_items", "to_col": "order_id", "label": "1:N"}
+  ]
+}

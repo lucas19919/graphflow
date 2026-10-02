@@ -1,0 +1,1 @@
+{"edges": [{"from": "l", "label": "a", "to": "y"}, {"from": "r", "label": "b", "to": "x"}], "nodes": [{"id": "l", "name": "Left src", "shape": "oval"}, {"id": "r", "name": "Right src", "shape": "oval"}, {"id": "x", "name": "X", "shape": "rect"}, {"id": "y", "name": "Y", "shape": "rect"}], "title": "Cross test"}

@@ -1,0 +1,33 @@
+<svg role="img" viewBox="0 0 760 740" width="760"><title>Checkout Topology</title>
+<desc>Checkout Topology</desc>
+<rect width="760" height="740" fill="#f5f5f5"/>
+<defs><marker id="a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#4f5d75"/></marker><marker id="aa" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#eb6c36"/></marker><marker id="al" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#2e5aa8"/></marker><marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#7a8399"/></marker></defs>
+<path d="M380.0,128 L380.0,212" fill="none" stroke="#2e5aa8" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="362.0" y="150.0" width="36" height="12" rx="2" fill="#f5f5f5"/><text x="380.0" y="159.0" font-size="8" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" fill="#7a8399" text-anchor="middle" letter-spacing=".06em">HTTPS</text>
+<path d="M380.0,268 L380.0,352" fill="none" stroke="#eb6c36" stroke-width="1.5" marker-end="url(#aa)"/>
+<rect x="348.5" y="290.0" width="63" height="12" rx="2" fill="#f5f5f5"/><text x="380.0" y="299.0" font-size="8" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" fill="#7a8399" text-anchor="middle" letter-spacing=".06em">AUTHORIZE</text>
+<path d="M380.0,408 L380.0,492" fill="none" stroke="#4f5d75" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="345.0" y="430.0" width="70" height="12" rx="2" fill="#f5f5f5"/><text x="380.0" y="439.0" font-size="8" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" fill="#7a8399" text-anchor="middle" letter-spacing=".06em">SQL INSERT</text>
+<rect x="300.0" y="72" width="160" height="56" rx="6" fill="#f5f5f5"/>
+<rect x="300.0" y="72" width="160" height="56" rx="6" fill="#ffffff" stroke="#2d3142"/>
+<rect x="308.0" y="78" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="322.0" y="87" font-size="7" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" letter-spacing=".08em" fill="#2d3142" text-anchor="middle">UI</text>
+<text x="380.0" y="102.0" font-size="12" font-weight="600" font-family="'Inter','Geist',-apple-system,'Segoe UI',sans-serif" fill="#2d3142" text-anchor="middle">Frontend Web</text>
+<rect x="300.0" y="212" width="160" height="56" rx="6" fill="#f5f5f5"/>
+<rect x="300.0" y="212" width="160" height="56" rx="6" fill="rgba(235,108,54,0.08)" stroke="#eb6c36"/>
+<rect x="308.0" y="218" width="49" height="12" rx="2" fill="none" stroke="#eb6c36" stroke-opacity=".4" stroke-width=".8"/>
+<text x="332.5" y="227" font-size="7" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" letter-spacing=".08em" fill="#eb6c36" text-anchor="middle">GATEWAY</text>
+<text x="380.0" y="242.0" font-size="12" font-weight="600" font-family="'Inter','Geist',-apple-system,'Segoe UI',sans-serif" fill="#2d3142" text-anchor="middle">API Gateway</text>
+<rect x="300.0" y="352" width="160" height="56" rx="6" fill="#f5f5f5"/>
+<rect x="300.0" y="352" width="160" height="56" rx="6" fill="#ffffff" stroke="#2d3142"/>
+<rect x="308.0" y="358" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="322.0" y="367" font-size="7" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" letter-spacing=".08em" fill="#2d3142" text-anchor="middle">SVC</text>
+<text x="380.0" y="382.0" font-size="12" font-weight="600" font-family="'Inter','Geist',-apple-system,'Segoe UI',sans-serif" fill="#2d3142" text-anchor="middle">Payment Svc</text>
+<rect x="300.0" y="492" width="160" height="56" rx="6" fill="#f5f5f5"/>
+<rect x="300.0" y="492" width="160" height="56" rx="6" fill="#ffffff" stroke="#2d3142"/>
+<rect x="308.0" y="498" width="35" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="325.5" y="507" font-size="7" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" letter-spacing=".08em" fill="#2d3142" text-anchor="middle">STORE</text>
+<text x="380.0" y="522.0" font-size="12" font-weight="600" font-family="'Inter','Geist',-apple-system,'Segoe UI',sans-serif" fill="#2d3142" text-anchor="middle">Postgres DB</text>
+<line x1="30" y1="692" x2="730" y2="692" stroke="rgba(45,49,66,0.12)" stroke-width=".8"/>
+<text x="30" y="708" font-size="8" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" letter-spacing=".14em" fill="#4f5d75">LEGEND · BLUE=HTTP · DASHED=ASYNC · CORAL=FOCAL (MAX 2)</text>
+</svg>

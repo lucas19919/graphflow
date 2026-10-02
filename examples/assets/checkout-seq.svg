@@ -1,0 +1,29 @@
+<svg role="img" viewBox="0 0 780 400" width="780"><title>Checkout Sequence</title><rect width="780" height="400" fill="#f5f5f5"/>
+<defs><marker id="a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#4f5d75"/></marker><marker id="aa" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#eb6c36"/></marker><marker id="al" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#2e5aa8"/></marker><marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#7a8399"/></marker></defs>
+<line x1="140.0" y1="142" x2="140.0" y2="350" stroke="rgba(45,49,66,0.12)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="390.0" y1="142" x2="390.0" y2="350" stroke="rgba(45,49,66,0.12)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="640.0" y1="142" x2="640.0" y2="350" stroke="rgba(45,49,66,0.12)" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="140.0" y1="164" x2="382.0" y2="164" stroke="#2e5aa8" stroke-width="1.5" marker-end="url(#al)"/>
+<rect x="188.0" y="144" width="154" height="12" rx="2" fill="#f5f5f5"/><text x="265.0" y="153" font-size="8" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" fill="#7a8399" text-anchor="middle" letter-spacing=".06em">[HTTPS] POST /CHECKOUT</text>
+<line x1="390.0" y1="216" x2="632.0" y2="216" stroke="#eb6c36" stroke-width="1.5" marker-end="url(#aa)"/>
+<rect x="466.0" y="196" width="98" height="12" rx="2" fill="#f5f5f5"/><text x="515.0" y="205" font-size="8" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" fill="#7a8399" text-anchor="middle" letter-spacing=".06em">AUTHORIZE CARD</text>
+<line x1="640.0" y1="268" x2="398.0" y2="268" stroke="#4f5d75" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#a)"/>
+<rect x="473.0" y="248" width="84" height="12" rx="2" fill="#f5f5f5"/><text x="515.0" y="257" font-size="8" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" fill="#7a8399" text-anchor="middle" letter-spacing=".06em">200 APPROVED</text>
+<rect x="70.0" y="90" width="140" height="52" rx="6" fill="#f5f5f5"/>
+<rect x="70.0" y="90" width="140" height="52" rx="6" fill="#ffffff" stroke="#2d3142"/>
+<rect x="78.0" y="96" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="92.0" y="105" font-size="7" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" letter-spacing=".08em" fill="#2d3142" text-anchor="middle">USER</text>
+<text x="140.0" y="118.0" font-size="12" font-weight="600" font-family="'Inter','Geist',-apple-system,'Segoe UI',sans-serif" fill="#2d3142" text-anchor="middle">Shopper</text>
+<rect x="320.0" y="90" width="140" height="52" rx="6" fill="#f5f5f5"/>
+<rect x="320.0" y="90" width="140" height="52" rx="6" fill="rgba(235,108,54,0.08)" stroke="#eb6c36"/>
+<rect x="328.0" y="96" width="49" height="12" rx="2" fill="none" stroke="#eb6c36" stroke-opacity=".4" stroke-width=".8"/>
+<text x="352.5" y="105" font-size="7" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" letter-spacing=".08em" fill="#eb6c36" text-anchor="middle">GATEWAY</text>
+<text x="390.0" y="118.0" font-size="12" font-weight="600" font-family="'Inter','Geist',-apple-system,'Segoe UI',sans-serif" fill="#2d3142" text-anchor="middle">API Gateway</text>
+<rect x="570.0" y="90" width="140" height="52" rx="6" fill="#f5f5f5"/>
+<rect x="570.0" y="90" width="140" height="52" rx="6" fill="#ffffff" stroke="#2d3142"/>
+<rect x="578.0" y="96" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="592.0" y="105" font-size="7" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" letter-spacing=".08em" fill="#2d3142" text-anchor="middle">SVC</text>
+<text x="640.0" y="118.0" font-size="12" font-weight="600" font-family="'Inter','Geist',-apple-system,'Segoe UI',sans-serif" fill="#2d3142" text-anchor="middle">Payment Svc</text>
+<line x1="30" y1="362" x2="750" y2="362" stroke="rgba(45,49,66,0.12)" stroke-width=".8"/>
+<text x="30" y="376" font-size="8" font-family="'IBM Plex Mono','Geist Mono',ui-monospace,monospace" letter-spacing=".14em" fill="#4f5d75">LEGEND · SOLID=SYNC · DASHED=REPLY/ASYNC · BLUE=HTTP · CORAL=FOCAL</text>
+</svg>

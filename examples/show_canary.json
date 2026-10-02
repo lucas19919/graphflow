@@ -1,0 +1,24 @@
+{
+  "title": "Canary promotion",
+  "sub": "Yes promotes. No rolls back into the build.",
+  "nodes": [
+    {"id": "merge", "name": "Merge", "shape": "oval", "tag": "START", "rank": 0},
+    {"id": "build", "name": "Bake image", "shape": "rect", "tag": "STEP", "sub": "sha 8f3c", "rank": 1},
+    {"id": "canary", "name": "Canary 5%", "shape": "rect", "tag": "STEP", "sub": "15 min", "rank": 2},
+    {"id": "slo", "name": "SLO hold?", "shape": "diamond", "focal": true, "rank": 3},
+    {"id": "rollback", "name": "Roll back", "shape": "rect", "tag": "STEP", "sub": "previous", "rank": 3, "lane": -1},
+    {"id": "promote", "name": "Promote", "shape": "rect", "tag": "STEP", "sub": "100%", "rank": 4, "lane": 1},
+    {"id": "observe", "name": "Observe", "shape": "rect", "tag": "STEP", "sub": "1 hour", "rank": 5},
+    {"id": "steady", "name": "Steady", "shape": "oval", "tag": "END", "rank": 6}
+  ],
+  "edges": [
+    {"from": "merge", "to": "build", "label": "land"},
+    {"from": "build", "to": "canary", "label": "push"},
+    {"from": "canary", "to": "slo", "label": "watch"},
+    {"from": "slo", "to": "promote", "label": "yes", "focal": true},
+    {"from": "slo", "to": "rollback", "label": "no"},
+    {"from": "rollback", "to": "build", "label": "patch"},
+    {"from": "promote", "to": "observe", "label": "ramp"},
+    {"from": "observe", "to": "steady", "label": "hold"}
+  ]
+}

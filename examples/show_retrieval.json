@@ -1,0 +1,26 @@
+{
+  "title": "Retrieval path",
+  "sub": "Two clients in. The index is hit from both the embedder and the model.",
+  "nodes": [
+    {"id": "app", "name": "App", "tag": "UI", "sub": ":3000", "layer": 0},
+    {"id": "note", "name": "Notebook", "tag": "UI", "sub": "batch", "layer": 0},
+    {"id": "batch", "name": "Nightly", "tag": "SVC", "sub": "cron", "layer": 0},
+    {"id": "gw", "name": "Gateway", "tag": "API", "sub": "Go :8080", "layer": 1, "focal": true},
+    {"id": "work", "name": "Worker", "tag": "SVC", "sub": "queue", "layer": 1},
+    {"id": "embed", "name": "Embedder", "tag": "SVC", "sub": "bge", "layer": 2},
+    {"id": "model", "name": "Model", "tag": "SVC", "sub": "8k ctx", "layer": 2},
+    {"id": "index", "name": "Index", "tag": "STORE", "sub": "qdrant", "layer": 3},
+    {"id": "ledger", "name": "Ledger", "tag": "STORE", "sub": "traces", "layer": 3}
+  ],
+  "edges": [
+    {"from": "app", "to": "gw", "label": "ask", "proto": "https"},
+    {"from": "note", "to": "gw", "label": "ask", "proto": "https"},
+    {"from": "batch", "to": "work", "label": "enqueue", "async": true},
+    {"from": "gw", "to": "embed", "label": "encode"},
+    {"from": "gw", "to": "model", "label": "complete", "proto": "https"},
+    {"from": "work", "to": "model", "label": "complete", "async": true},
+    {"from": "embed", "to": "index", "label": "upsert"},
+    {"from": "model", "to": "index", "label": "search"},
+    {"from": "model", "to": "ledger", "label": "trace", "async": true}
+  ]
+}

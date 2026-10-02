@@ -1,0 +1,58 @@
+{
+  "title": "Training store",
+  "sub": "A run points at its data, its checkpoints, and its scores.",
+  "tables": [
+    {
+      "id": "datasets", "name": "datasets", "tag": "DATA", "x": 40, "y": 96,
+      "columns": [
+        {"name": "id", "type": "uuid", "pk": true},
+        {"name": "name", "type": "text"},
+        {"name": "rows", "type": "bigint"},
+        {"name": "sha256", "type": "char(64)"}
+      ]
+    },
+    {
+      "id": "runs", "name": "runs", "tag": "CORE", "focal": true, "x": 370, "y": 96,
+      "columns": [
+        {"name": "id", "type": "uuid", "pk": true},
+        {"name": "dataset_id", "type": "uuid", "fk": true},
+        {"name": "name", "type": "text"},
+        {"name": "status", "type": "text"},
+        {"name": "started_at", "type": "timestamptz"}
+      ]
+    },
+    {
+      "id": "checks", "name": "checkpoints", "tag": "CORE", "x": 700, "y": 96,
+      "columns": [
+        {"name": "id", "type": "uuid", "pk": true},
+        {"name": "run_id", "type": "uuid", "fk": true},
+        {"name": "step", "type": "integer"},
+        {"name": "loss", "type": "float"}
+      ]
+    },
+    {
+      "id": "metrics", "name": "metrics", "tag": "AUDIT", "x": 370, "y": 320,
+      "columns": [
+        {"name": "id", "type": "uuid", "pk": true},
+        {"name": "run_id", "type": "uuid", "fk": true},
+        {"name": "split", "type": "text"},
+        {"name": "score", "type": "float"}
+      ]
+    },
+    {
+      "id": "evals", "name": "evals", "tag": "AUDIT", "x": 700, "y": 320,
+      "columns": [
+        {"name": "id", "type": "uuid", "pk": true},
+        {"name": "check_id", "type": "uuid", "fk": true},
+        {"name": "task", "type": "text"},
+        {"name": "score", "type": "float"}
+      ]
+    }
+  ],
+  "relations": [
+    {"from": "datasets", "from_col": "id", "to": "runs", "to_col": "dataset_id", "label": "1:N"},
+    {"from": "runs", "from_col": "id", "to": "checks", "to_col": "run_id", "label": "1:N"},
+    {"from": "runs", "from_col": "id", "to": "metrics", "to_col": "run_id", "label": "1:N"},
+    {"from": "checks", "from_col": "id", "to": "evals", "to_col": "check_id", "label": "1:N"}
+  ]
+}

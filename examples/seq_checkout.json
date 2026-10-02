@@ -1,0 +1,22 @@
+{
+  "title": "Order Checkout Sequence",
+  "sub": "Synchronous payment authorization with asynchronous receipt notification",
+  "eyebrow": "sequence · checkout",
+  "actors": [
+    {"id": "user", "name": "Customer", "tag": "USER"},
+    {"id": "fe", "name": "Web App", "tag": "UI"},
+    {"id": "api", "name": "API Gateway", "tag": "GATEWAY", "focal": true},
+    {"id": "pay", "name": "Payment Svc", "tag": "SVC"},
+    {"id": "db", "name": "Postgres", "tag": "STORE"}
+  ],
+  "messages": [
+    {"from": "user", "to": "fe", "label": "Submit Order"},
+    {"from": "fe", "to": "api", "label": "POST /checkout", "proto": "https"},
+    {"from": "api", "to": "pay", "label": "Authorize Card", "focal": true},
+    {"from": "pay", "to": "db", "label": "Store Ledger TX"},
+    {"from": "db", "to": "pay", "label": "TX Committed", "reply": true},
+    {"from": "pay", "to": "api", "label": "Payment Succeeded", "reply": true, "focal": true},
+    {"from": "api", "to": "fe", "label": "201 Created (Order #491)", "reply": true},
+    {"from": "fe", "to": "user", "label": "Show Confirmation", "reply": true}
+  ]
+}

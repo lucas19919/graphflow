@@ -1,0 +1,6 @@
+service,p99_latency_ms,sla_target_ms
+Auth Service,42,50
+Catalog API,88,100
+Search Gateway,135,150
+Payment Pipeline,210,200
+Analytics Ingest,340,300

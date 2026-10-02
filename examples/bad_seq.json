@@ -1,0 +1,1 @@
+{"actors": [{"id": "a", "name": "A"}, {"id": "b", "name": "B"}], "messages": [{"from": "a", "label": "unlabeled?", "to": "ghost"}], "tables": [], "title": "bad seq"}
