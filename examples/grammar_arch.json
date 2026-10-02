@@ -1,0 +1,33 @@
+{
+  "title": "Grammar",
+  "sub": "Axiom and Lemma embed one engine. A question is an object set. strohmann-grammar df08242.",
+  "budget": false,
+  "nodes": [
+    {"id": "axiom", "name": "Axiom", "sub": "tenant server", "tag": "APP", "layer": 0},
+    {"id": "lemma", "name": "Lemma", "sub": "fleet hub", "tag": "APP", "layer": 0},
+    {"id": "cli", "name": "strohmann", "sub": "check and serve", "tag": "CLI", "layer": 0},
+    {"id": "wheel", "name": "Python wheel", "sub": "grammar-py", "tag": "LIB", "layer": 1},
+    {"id": "engine", "name": "Engine", "sub": "planner and doors", "tag": "LIB", "layer": 1, "focal": true},
+    {"id": "grammar", "name": "Grammar", "sub": "pure crate", "tag": "LIB", "layer": 1, "focal": true},
+    {"id": "authority", "name": "Authority", "sub": "grants, audit", "tag": "SVC", "layer": 2},
+    {"id": "writer", "name": "Writer", "sub": "one effect", "tag": "SVC", "layer": 2},
+    {"id": "packs", "name": "Packs", "sub": "core, mfg, ship", "tag": "LIB", "layer": 2},
+    {"id": "intake", "name": "Intake", "sub": "raw to things", "tag": "SVC", "layer": 3},
+    {"id": "duck", "name": "DuckDB", "sub": "current and history", "tag": "STORE", "layer": 3},
+    {"id": "vectors", "name": "Vectors", "sub": "one refusal each", "tag": "TEST", "layer": 3}
+  ],
+  "edges": [
+    {"from": "axiom", "to": "wheel", "label": "load"},
+    {"from": "lemma", "to": "engine", "label": "embed"},
+    {"from": "cli", "to": "grammar", "label": "check"},
+    {"from": "wheel", "to": "engine", "label": "open"},
+    {"from": "engine", "to": "grammar", "label": "holds"},
+    {"from": "engine", "to": "writer", "label": "act"},
+    {"from": "writer", "to": "duck", "label": "append"},
+    {"from": "writer", "to": "authority", "label": "audit"},
+    {"from": "intake", "to": "duck", "label": "load"},
+    {"from": "grammar", "to": "packs", "label": "uses"},
+    {"from": "packs", "to": "vectors", "label": "goldens"},
+    {"from": "cli", "to": "engine", "label": "serve", "proto": "https"}
+  ]
+}

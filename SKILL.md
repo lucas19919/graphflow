@@ -51,6 +51,8 @@ py graph.py arch containers.json -o out/arch.html
 
 ## Hard budgets (validate enforces, audit double-checks)
 
+A flow or architecture spec may set `"budget": false` to lift the node and edge counts. Focal stays at two. The row widens so the boxes still sit apart.
+
 | rule | limit | over → |
 |---|---|---|
 | nodes | 9 | split overview + detail |

@@ -1,0 +1,20 @@
+{
+  "title": "One action",
+  "sub": "A door asks the grammar to decide. The writer commits the effect and one audit line.",
+  "actors": [
+    {"id": "caller", "name": "Caller", "tag": "USER", "sub": "bearer"},
+    {"id": "doors", "name": "Doors", "tag": "API", "sub": "envelope", "focal": true},
+    {"id": "grammar", "name": "Grammar", "tag": "LIB", "sub": "decide", "focal": true},
+    {"id": "writer", "name": "Writer", "tag": "SVC", "sub": "act"},
+    {"id": "duck", "name": "DuckDB", "tag": "STORE", "sub": "history"}
+  ],
+  "messages": [
+    {"from": "caller", "to": "doors", "label": "act", "proto": "https"},
+    {"from": "doors", "to": "grammar", "label": "decide"},
+    {"from": "grammar", "to": "doors", "label": "commit", "reply": true},
+    {"from": "doors", "to": "writer", "label": "effect"},
+    {"from": "writer", "to": "duck", "label": "append"},
+    {"from": "writer", "to": "doors", "label": "written", "reply": true},
+    {"from": "doors", "to": "caller", "label": "answered", "reply": true, "proto": "https"}
+  ]
+}

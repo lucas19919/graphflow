@@ -688,14 +688,18 @@ def render_arch(spec, corners="editorial", theme=None):
     nodes = spec["nodes"]; edges = spec.get("edges", [])
     _notes = (spec.get("notes", []) or [])[:2]
     head_bits, head_h = figure_heading(t, spec.get("title") or "", spec.get("sub") or "", x=30)
-    W = 760 + (200 if _notes else 0)
     # simple layered: group by 'layer' (0 top..n), spread across width
     from collections import defaultdict
     layers = defaultdict(list)
     for n in nodes:
         layers[n.get("layer", 0)].append(n)
+    max_n = max((len(row) for row in layers.values()), default=1)
+    # A box is 160 wide. A row wider than four overlaps on a 760 canvas.
+    # A spec with the count cap off gets a wider pitch so the labels fit.
+    pitch = 220 if spec.get("budget", True) is False else 188
+    W = max(760, pitch * (max_n + 1)) + (200 if _notes else 0)
     pos = {}
-    top, gap_y = max(100, head_h + 24), 140
+    top, gap_y = max(100, head_h + 24), 156
     for li, key in enumerate(sorted(layers)):
         row = layers[key]
         for j, n in enumerate(row):
@@ -1951,8 +1955,10 @@ DESCRIBE = {
         "node": {"id": "unique", "layer": "row int (default 0)", "name": "service", "sub": "Lang:port e.g. Go:8080",
                  "tag": "UI|API|SVC|STORE", "focal": "bool, max 2"},
         "edge": {"from": "id", "to": "id", "label": "VERB", "proto": "https=blue arrow", "async": "dashed bool", "focal": "bool"},
-        "rules": ["blue=HTTP/API, dashed=async, coral=focal", "tech sublabels in mono, names in sans"],
-        "budgets": {"nodes": 9, "edges": 12, "layers": 6, "over": "one view per C4 level"},
+        "rules": ["blue=HTTP/API, dashed=async, coral=focal", "tech sublabels in mono, names in sans",
+                  "a wide layer spreads the canvas so boxes do not overlap",
+                  "set budget false to draw past 9 nodes and 12 edges; focal stays at 2"],
+        "budgets": {"nodes": 9, "edges": 12, "layers": 6, "over": "one view per C4 level, or budget false"},
     },
     "seq": {
         "input": "JSON spec {title, sub, actors[], messages[]}",
@@ -2176,10 +2182,11 @@ def _validate_spec_dict(spec, errors, warnings):
                 if e.get(k) not in ids:
                     _vissue(errors, warnings, "E", f"edge {e} refs unknown id '{e.get(k)}'",
                             f"add node or fix to one of {ids}")
-        if len(nodes) > 9:
-            _vissue(errors, warnings, "E", f"{len(nodes)} nodes > budget 9", "split into overview + detail views")
-        if len(edges) > 12:
-            _vissue(errors, warnings, "E", f"{len(edges)} edges > budget 12", "drop obvious-from-layout arrows")
+        if spec.get("budget", True) is not False:
+            if len(nodes) > 9:
+                _vissue(errors, warnings, "E", f"{len(nodes)} nodes > budget 9", "split into overview + detail views, or set budget false")
+            if len(edges) > 12:
+                _vissue(errors, warnings, "E", f"{len(edges)} edges > budget 12", "drop obvious-from-layout arrows, or set budget false")
         if sum(1 for n in nodes if n.get("focal")) > 2:
             _vissue(errors, warnings, "E", "focal on >2 nodes erases signal", "keep 1-2 focal, demote rest")
         from collections import Counter

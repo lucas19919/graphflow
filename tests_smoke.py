@@ -255,6 +255,22 @@ def main():
     rc, out = run("monitor")
     check("monitor graceful json", rc == 0 and json.loads(out).get("drift") in (True, False), out[:120])
 
+    print("== budget ==")
+    big = os.path.join(WORK, "big.json")
+    nodes = [{"id": f"n{i}", "name": f"N{i}", "layer": i // 4} for i in range(10)]
+    edges = [{"from": f"n{i}", "to": f"n{i+1}"} for i in range(9)]
+    with open(big, "w", encoding="utf-8") as f:
+        json.dump({"title": "Big", "nodes": nodes, "edges": edges}, f)
+    rc, _ = run("validate", big)
+    check("ten nodes still refused", rc == 1)
+    with open(big, encoding="utf-8") as f:
+        spec = json.load(f)
+    spec["budget"] = False
+    with open(big, "w", encoding="utf-8") as f:
+        json.dump(spec, f)
+    rc, out = run("validate", big)
+    check("budget false allows ten nodes", rc == 0, out[:160])
+
     print("== mcp ==")
     try:
         rs = mcp(['{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}',
