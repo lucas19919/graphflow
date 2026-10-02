@@ -1,7 +1,9 @@
 # graph-engine skill
 
-Render editorial-grade diagrams from data and specs with `graph.py` (pure stdlib,
-zero installs). Works in any workspace: point `GRAPH` at the engine copy.
+Draw figures from data and specs with graphflow (`graph.py`, Python 3 standard library).
+
+If `graph.py` is not on the machine, run the `graphflow-install` skill first.
+Invoke the installed file by its absolute path: `py -3 <path>` on Windows, `python3 <path>` elsewhere.
 
 ## Trigger
 

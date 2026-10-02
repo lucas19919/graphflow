@@ -1,7 +1,8 @@
 # graph — agent skill
 
-CLI that renders journal-grade graphs from data and specs. Pure Python stdlib.
-No installs, no servers, deterministic output.
+Graphing library for agents. `graph.py` is Python 3, standard library only.
+Install with the `graphflow-install` skill, then draw with the commands below.
+Same spec, same SVG.
 
 ## The loop (always in this order)
 
