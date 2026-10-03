@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 1114 586" width="1114"><title>Shop data model</title>
+<desc>Shop data model</desc>
+<rect width="1114" height="586" fill="#f5f5f5"/>
+<defs><marker id="a" markerWidth="12" markerHeight="9" refX="11" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,12 4.5,0 9" fill="#4f5d75"/></marker><marker id="aa" markerWidth="12" markerHeight="9" refX="11" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,12 4.5,0 9" fill="#eb6c36"/></marker><marker id="al" markerWidth="12" markerHeight="9" refX="11" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,12 4.5,0 9" fill="#2e5aa8"/></marker><marker id="ar" markerWidth="12" markerHeight="9" refX="11" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,12 4.5,0 9" fill="#7a8399"/></marker></defs>
+<text x="30" y="26" font-size="18" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">Shop data model</text>
+<path d="M814,142.0 L756.5,142.0 Q748.5,142.0 748.5,150.0 L748.5,146.0 Q748.5,154.0 740.5,154.0 L683,154.0" fill="none" stroke="#2e5aa8" stroke-width="1.4" marker-end="url(#al)"/>
+<rect x="710.5" y="124.0" width="76" height="16" rx="2" fill="#f5f5f5"/><text x="748.5" y="136.0" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">1:N PLACES</text>
+<path d="M437,154.0 L306,154.0" fill="none" stroke="#2e5aa8" stroke-width="1.4" marker-end="url(#al)"/>
+<rect x="327.5" y="130.0" width="88" height="16" rx="2" fill="#f5f5f5"/><text x="371.5" y="142.0" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">1:N CONTAINS</text>
+<path d="M180.0,462.0 L180.0,154.0" fill="none" stroke="#2e5aa8" stroke-width="1.4" marker-end="url(#al)"/>
+<rect x="129.5" y="284.0" width="101" height="16" rx="2" fill="#f5f5f5"/><text x="180.0" y="296.0" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">1:N ORDERED IN</text>
+<rect x="60" y="90" width="240" height="128" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+<path d="M60,126 L60,96 Q60,90 66,90 L294,90 Q300,90 300,96 L300,126 Z" fill="rgba(45,49,66,0.06)"/>
+<line x1="60" y1="126" x2="300" y2="126" stroke="rgba(45,49,66,0.12)" stroke-width="1"/>
+<text x="72" y="113" font-size="13" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">LINE_ITEM</text>
+<rect x="70" y="138" width="20" height="12" rx="2" fill="#2e5aa8" fill-opacity=".15"/>
+<text x="80" y="147" font-size="7" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2e5aa8" text-anchor="middle">FK</text>
+<text x="95" y="149" font-size="11" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">order_id</text>
+<text x="288" y="149" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">uuid</text>
+<line x1="66" y1="158" x2="294" y2="158" stroke="rgba(45,49,66,0.12)" stroke-width="0.5"/>
+<rect x="70" y="162" width="20" height="12" rx="2" fill="#2e5aa8" fill-opacity=".15"/>
+<text x="80" y="171" font-size="7" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2e5aa8" text-anchor="middle">FK</text>
+<text x="95" y="173" font-size="11" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">product_id</text>
+<text x="288" y="173" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">uuid</text>
+<line x1="66" y1="182" x2="294" y2="182" stroke="rgba(45,49,66,0.12)" stroke-width="0.5"/>
+<text x="70" y="197" font-size="11" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">quantity</text>
+<text x="288" y="197" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">int</text>
+<rect x="437" y="90" width="240" height="128" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+<path d="M437,126 L437,96 Q437,90 443,90 L671,90 Q677,90 677,96 L677,126 Z" fill="rgba(45,49,66,0.06)"/>
+<line x1="437" y1="126" x2="677" y2="126" stroke="rgba(45,49,66,0.12)" stroke-width="1"/>
+<text x="449" y="113" font-size="13" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">ORDER</text>
+<rect x="447" y="138" width="20" height="12" rx="2" fill="#eb6c36" fill-opacity=".15"/>
+<text x="457" y="147" font-size="7" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#eb6c36" text-anchor="middle">PK</text>
+<text x="472" y="149" font-size="11" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">id</text>
+<text x="665" y="149" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">uuid</text>
+<line x1="443" y1="158" x2="671" y2="158" stroke="rgba(45,49,66,0.12)" stroke-width="0.5"/>
+<rect x="447" y="162" width="20" height="12" rx="2" fill="#2e5aa8" fill-opacity=".15"/>
+<text x="457" y="171" font-size="7" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2e5aa8" text-anchor="middle">FK</text>
+<text x="472" y="173" font-size="11" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">customer_id</text>
+<text x="665" y="173" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">uuid</text>
+<line x1="443" y1="182" x2="671" y2="182" stroke="rgba(45,49,66,0.12)" stroke-width="0.5"/>
+<text x="447" y="197" font-size="11" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">total_cents</text>
+<text x="665" y="197" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">int</text>
+<rect x="814" y="90" width="240" height="104" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+<path d="M814,126 L814,96 Q814,90 820,90 L1048,90 Q1054,90 1054,96 L1054,126 Z" fill="rgba(45,49,66,0.06)"/>
+<line x1="814" y1="126" x2="1054" y2="126" stroke="rgba(45,49,66,0.12)" stroke-width="1"/>
+<text x="826" y="113" font-size="13" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">CUSTOMER</text>
+<rect x="824" y="138" width="20" height="12" rx="2" fill="#eb6c36" fill-opacity=".15"/>
+<text x="834" y="147" font-size="7" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#eb6c36" text-anchor="middle">PK</text>
+<text x="849" y="149" font-size="11" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">id</text>
+<text x="1042" y="149" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">uuid</text>
+<line x1="820" y1="158" x2="1048" y2="158" stroke="rgba(45,49,66,0.12)" stroke-width="0.5"/>
+<text x="824" y="173" font-size="11" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">email</text>
+<text x="1042" y="173" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">string</text>
+<rect x="60" y="410" width="240" height="104" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+<path d="M60,446 L60,416 Q60,410 66,410 L294,410 Q300,410 300,416 L300,446 Z" fill="rgba(45,49,66,0.06)"/>
+<line x1="60" y1="446" x2="300" y2="446" stroke="rgba(45,49,66,0.12)" stroke-width="1"/>
+<text x="72" y="433" font-size="13" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">PRODUCT</text>
+<rect x="70" y="458" width="20" height="12" rx="2" fill="#eb6c36" fill-opacity=".15"/>
+<text x="80" y="467" font-size="7" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#eb6c36" text-anchor="middle">PK</text>
+<text x="95" y="469" font-size="11" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">id</text>
+<text x="288" y="469" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">uuid</text>
+<line x1="66" y1="478" x2="294" y2="478" stroke="rgba(45,49,66,0.12)" stroke-width="0.5"/>
+<text x="70" y="493" font-size="11" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">sku</text>
+<text x="288" y="493" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">string</text>
+<line x1="30" y1="548" x2="1084" y2="548" stroke="rgba(45,49,66,0.12)" stroke-width=".8"/>
+<text x="30" y="562" font-size="11" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75">pk = primary key, fk = foreign key, blue = relation, coral = focal</text>
+</svg>

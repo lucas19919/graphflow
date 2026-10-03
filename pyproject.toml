@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diagonaldiagrams"
+dynamic = ["version"]
+description = "Charts and diagrams for agents: one command checks the spec, draws an SVG, and audits the layout."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+authors = [{ name = "Lucas Reimers" }]
+keywords = ["charts", "diagrams", "svg", "flowchart", "mcp", "agents"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+
+[project.optional-dependencies]
+png = ["cairosvg"]
+
+[project.scripts]
+diagonaldiagrams = "graph:cli"
+
+[project.urls]
+Homepage = "https://github.com/lucas19919/diagonaldiagrams"
+
+[tool.setuptools]
+py-modules = ["graph"]
+
+[tool.setuptools.dynamic]
+version = { attr = "graph.__version__" }

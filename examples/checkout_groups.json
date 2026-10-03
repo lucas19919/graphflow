@@ -1,0 +1,225 @@
+{
+ "title": "Checkout platform, grouped",
+ "sub": "The same system with its clients, core, and event consumers framed.",
+ "budget": false,
+ "nodes": [
+  {
+   "id": "web",
+   "name": "Web app",
+   "sub": "React",
+   "tag": "UI",
+   "layer": 0
+  },
+  {
+   "id": "mobile",
+   "name": "Mobile app",
+   "sub": "Swift",
+   "tag": "UI",
+   "layer": 0
+  },
+  {
+   "id": "gw",
+   "name": "API gateway",
+   "sub": "Envoy:443",
+   "tag": "API",
+   "layer": 1
+  },
+  {
+   "id": "auth",
+   "name": "Auth",
+   "sub": "Go:8081",
+   "tag": "SVC",
+   "layer": 2
+  },
+  {
+   "id": "catalog",
+   "name": "Catalog",
+   "sub": "Go:8082",
+   "tag": "SVC",
+   "layer": 2
+  },
+  {
+   "id": "orders",
+   "name": "Orders",
+   "sub": "Kotlin:8083",
+   "tag": "SVC",
+   "layer": 2,
+   "focal": true
+  },
+  {
+   "id": "pay",
+   "name": "Payments",
+   "sub": "Kotlin:8084",
+   "tag": "SVC",
+   "layer": 2,
+   "focal": true
+  },
+  {
+   "id": "redis",
+   "name": "Redis",
+   "sub": "sessions, cache",
+   "tag": "STORE",
+   "layer": 3
+  },
+  {
+   "id": "pg",
+   "name": "Postgres",
+   "sub": "orders, ledger",
+   "tag": "STORE",
+   "layer": 3
+  },
+  {
+   "id": "bus",
+   "name": "Event bus",
+   "sub": "Kafka",
+   "tag": "STORE",
+   "layer": 3
+  },
+  {
+   "id": "stripe",
+   "name": "Stripe",
+   "sub": "external",
+   "tag": "API",
+   "layer": 3
+  },
+  {
+   "id": "inventory",
+   "name": "Inventory",
+   "sub": "reserve stock",
+   "tag": "SVC",
+   "layer": 4
+  },
+  {
+   "id": "notify",
+   "name": "Notifications",
+   "sub": "email, push",
+   "tag": "SVC",
+   "layer": 4
+  },
+  {
+   "id": "analytics",
+   "name": "Analytics",
+   "sub": "ClickHouse",
+   "tag": "STORE",
+   "layer": 4
+  }
+ ],
+ "edges": [
+  {
+   "from": "web",
+   "to": "gw",
+   "label": "calls",
+   "proto": "https"
+  },
+  {
+   "from": "mobile",
+   "to": "gw",
+   "label": "calls",
+   "proto": "https"
+  },
+  {
+   "from": "gw",
+   "to": "auth",
+   "label": "verify",
+   "proto": "https"
+  },
+  {
+   "from": "gw",
+   "to": "catalog",
+   "label": "browse",
+   "proto": "https"
+  },
+  {
+   "from": "gw",
+   "to": "orders",
+   "label": "checkout",
+   "proto": "https",
+   "focal": true
+  },
+  {
+   "from": "orders",
+   "to": "pay",
+   "label": "charge",
+   "focal": true
+  },
+  {
+   "from": "auth",
+   "to": "redis",
+   "label": "session"
+  },
+  {
+   "from": "catalog",
+   "to": "redis",
+   "label": "cache"
+  },
+  {
+   "from": "orders",
+   "to": "pg",
+   "label": "write"
+  },
+  {
+   "from": "orders",
+   "to": "bus",
+   "label": "placed",
+   "async": true
+  },
+  {
+   "from": "pay",
+   "to": "stripe",
+   "label": "card",
+   "proto": "https"
+  },
+  {
+   "from": "pay",
+   "to": "bus",
+   "label": "settled",
+   "async": true
+  },
+  {
+   "from": "bus",
+   "to": "inventory",
+   "label": "reserve",
+   "async": true
+  },
+  {
+   "from": "bus",
+   "to": "notify",
+   "label": "email",
+   "async": true
+  },
+  {
+   "from": "bus",
+   "to": "analytics",
+   "label": "ingest",
+   "async": true
+  }
+ ],
+ "groups": [
+  {
+   "id": "edge",
+   "name": "Clients",
+   "nodes": [
+    "web",
+    "mobile"
+   ]
+  },
+  {
+   "id": "core",
+   "name": "Checkout core",
+   "nodes": [
+    "orders",
+    "pay",
+    "pg"
+   ]
+  },
+  {
+   "id": "async",
+   "name": "Event consumers",
+   "nodes": [
+    "inventory",
+    "notify",
+    "analytics"
+   ]
+  }
+ ]
+}

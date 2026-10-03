@@ -1,0 +1,10 @@
+---
+title: An order, end to end
+---
+flowchart TD
+  U[fa:fa-user Customer] --> W[fa:fa-desktop Web app]
+  W --> G[fa:fa-shield API gateway]
+  G --> O[fa:fa-cog Orders service]
+  O --> D[(fa:fa-database Orders DB)]
+  O -.-> Q[fa:fa-list Event queue]
+  Q --> M[fa:fa-envelope Email sender]

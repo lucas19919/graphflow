@@ -1,0 +1,14 @@
+---
+title: How diagonaldiagrams draws a figure
+---
+flowchart TD
+    A([Agent writes a spec]) --> B[Check the spec]
+    B --> C{Valid?}
+    C -->|no| X[Errors with a fix]
+    C -->|yes| D[Lay out and draw]
+    D --> E[Audit the drawing]
+    E --> F{Clean?}
+    F -- no --> G[Repair the layout]
+    G -.-> E
+    F ==>|yes| H([SVG, HTML, receipt])
+    X -.-> A

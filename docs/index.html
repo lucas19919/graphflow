@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>diagonaldiagrams</title>
+<meta name="description" content="Charts and diagrams for AI agents. One command checks the spec, draws an SVG, and audits the layout for collisions. Mermaid in, draw.io and Excalidraw out. Pure Python, no dependencies.">
+<style>
+  :root {
+    --paper: #f5f5f5; --card: #ffffff; --ink: #2d3142; --muted: #4f5d75; --soft: #8a93a6;
+    --rule: #dfe2e8; --accent: #eb6c36; --link: #2e5aa8; --ok: #1f7a4d; --bad: #b3261e;
+    --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+    --sans: system-ui, "Segoe UI", -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { color-scheme: light; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 var(--sans); }
+  a { color: var(--link); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  header.top { border-bottom: 1px solid var(--rule); background: var(--card); }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .brand { font-weight: 700; letter-spacing: -.01em; color: var(--ink); text-decoration: none; }
+  .brand span { color: var(--accent); }
+  nav a { margin-left: 18px; color: var(--muted); text-decoration: none; font-size: 14px; }
+  nav a:hover { color: var(--ink); }
+  .hero { padding: 56px 0 28px; }
+  .hero h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.1; margin: 0 0 14px; letter-spacing: -.02em; max-width: 820px; }
+  .hero p.lede { font-size: 19px; color: var(--muted); max-width: 760px; margin: 0 0 24px; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--ink); }
+  .btn.primary { background: var(--ink); color: #fff; }
+  .btn.ghost { color: var(--ink); background: transparent; }
+  .figure { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 10px; margin: 28px 0 0; }
+  .figure img { width: 100%; height: auto; display: block; }
+  .figure.narrow { max-width: 640px; margin-left: auto; margin-right: auto; }
+  section { padding: 40px 0; }
+  section h2 { font-size: 26px; margin: 0 0 8px; letter-spacing: -.01em; }
+  section p.sub { color: var(--muted); margin: 0 0 22px; max-width: 760px; }
+  .three { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+  .card { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 18px 14px; }
+  .card h3 { margin: 0 0 6px; font-size: 17px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; background: var(--card); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--rule); }
+  th { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); background: #fafafa; }
+  td.num { font-variant-numeric: tabular-nums; }
+  td strong { color: var(--ink); }
+  .note { color: var(--soft); font-size: 13px; margin-top: 8px; }
+  .play { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px; }
+  @media (max-width: 860px) { .play { grid-template-columns: 1fr; } }
+  .panel { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; display: flex; flex-direction: column; min-height: 420px; }
+  .bar { display: flex; gap: 8px; align-items: center; padding: 10px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; }
+  .bar select, .bar button { font: 600 14px var(--sans); padding: 7px 12px; border-radius: 6px; border: 1px solid var(--rule); background: #fff; color: var(--ink); }
+  .bar button.go { background: var(--accent); border-color: var(--accent); color: #fff; cursor: pointer; }
+  .bar button.go:disabled { opacity: .55; cursor: progress; }
+  textarea { flex: 1; border: 0; resize: vertical; min-height: 340px; padding: 14px; font: 14px/1.5 var(--mono); color: var(--ink); background: transparent; outline: none; }
+  .out { flex: 1; padding: 12px; overflow: auto; display: flex; align-items: flex-start; justify-content: center; }
+  .out svg { max-width: 100%; height: auto; }
+  .verdict { border-top: 1px solid var(--rule); padding: 10px 14px; font: 13px/1.5 var(--mono); color: var(--muted); max-height: 180px; overflow: auto; white-space: pre-wrap; }
+  .verdict .ok { color: var(--ok); font-weight: 700; }
+  .verdict .bad { color: var(--bad); font-weight: 700; }
+  .status { font-size: 13px; color: var(--soft); margin-left: auto; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .gallery figure { margin: 0; background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 10px; display: flex; flex-direction: column; }
+  .gallery img { width: 100%; height: 240px; object-fit: contain; background: var(--paper); border-radius: 6px; }
+  .gallery figcaption { font-size: 14px; color: var(--muted); padding: 10px 4px 2px; }
+  .gallery figcaption code { font-size: 12px; color: var(--soft); }
+  pre { background: #1f2330; color: #e8eaf0; padding: 14px 16px; border-radius: 8px; overflow: auto; font: 13.5px/1.55 var(--mono); margin: 8px 0 0; }
+  .install { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  footer { border-top: 1px solid var(--rule); padding: 26px 0 40px; color: var(--soft); font-size: 14px; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">diagonal<span>diagrams</span></a>
+    <nav><a href="#try">Try it</a><a href="#gallery">Gallery</a><a href="#install">Install</a><a href="https://github.com/lucas19919/diagonaldiagrams">GitHub</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <h1>Diagrams and charts your agent can draw, and check before it shows you.</h1>
+    <p class="lede">One command takes a short spec, Mermaid, or a CSV, lays it out, draws an SVG, and audits the drawing for labels on labels, arrows through boxes, and text that spills. Pure Python, one file, no dependencies.</p>
+    <div class="cta">
+      <a class="btn primary" href="#try">Try it in the browser</a>
+      <a class="btn ghost" href="#install">Install for your agent</a>
+    </div>
+    <div class="figure"><img src="gallery/checkout.svg" alt="An architecture diagram of a checkout platform with fourteen services, drawn and audited by diagonaldiagrams"></div>
+  </div>
+
+  <section>
+    <h2>Why agents use it</h2>
+    <p class="sub">An agent can't see what it drew. This checks the drawing for it, and answers in one line of JSON.</p>
+    <div class="three">
+      <div class="card"><h3>Audited, not hoped for</h3><p>Every render is checked: label collisions, labels wider than their box, boxes on boxes, arrows through boxes or labels, arrows sharing a line. The layout repairs itself when it can. <code>audit</code> also checks any SVG an agent wrote by hand.</p></div>
+      <div class="card"><h3>Half the tokens</h3><p>Measured on real agent runs: fewer round trips than writing SVG by hand, because the agent writes a short spec and trusts the verdict instead of screenshotting to check.</p></div>
+      <div class="card"><h3>Mermaid in, editable out</h3><p>Agents already know Mermaid, so no docs to read first. Export to draw.io or Excalidraw when a person wants to drag things around.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Measured</h2>
+    <p class="sub">The same three tasks, done by fresh agents (Claude Sonnet) with diagonaldiagrams and by writing the SVG directly. Total tokens processed across all of the agent's calls.</p>
+    <table>
+      <tr><th>Task</th><th>Hand-written SVG</th><th>diagonaldiagrams</th><th>Calls</th><th>Time</th></tr>
+      <tr><td>Flowchart, 11 steps</td><td class="num">902k</td><td class="num"><strong>433k</strong></td><td class="num">13 → 7</td><td class="num">132s → 66s</td></tr>
+      <tr><td>Line chart, 3 series</td><td class="num">622k</td><td class="num"><strong>295k</strong></td><td class="num">10 → 5</td><td class="num">77s → 29s</td></tr>
+      <tr><td>Sequence, 6 actors</td><td class="num">757k</td><td class="num"><strong>427k</strong></td><td class="num">11 → 7</td><td class="num">153s → 45s</td></tr>
+    </table>
+    <p class="note">Most of an agent's tokens are its own instructions, re-read on every call; fewer calls is the saving. Writing the spec itself is about 2% of a run.</p>
+  </section>
+
+  <section id="try">
+    <h2>Try it</h2>
+    <p class="sub">This runs the real engine in your browser (Python via Pyodide, loaded once, about 10 MB). Nothing is sent anywhere.</p>
+    <div class="play">
+      <div class="panel">
+        <div class="bar">
+          <select id="kind" aria-label="Input type">
+            <option value="mermaid">Mermaid</option>
+            <option value="flow">flow (JSON)</option>
+            <option value="arch">arch (JSON)</option>
+          </select>
+          <select id="preset" aria-label="Example">
+            <option value="loop">Example: a loop</option>
+            <option value="groups">Example: frames</option>
+            <option value="seq">Example: sequence</option>
+            <option value="er">Example: data model</option>
+            <option value="json">Example: JSON flow</option>
+          </select>
+          <button class="go" id="go" disabled>Loading…</button>
+        </div>
+        <textarea id="src" spellcheck="false" aria-label="Diagram source"></textarea>
+      </div>
+      <div class="panel">
+        <div class="bar"><strong style="font-size:14px">Result</strong><span class="status" id="status">starting Python…</span></div>
+        <div class="out" id="out"></div>
+        <div class="verdict" id="verdict">The verdict appears here: ok or the errors, each with a fix, and the layout outline.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <p class="sub">Every figure here was drawn by diagonaldiagrams from a file in <code>examples/</code>, and passed its own audit.</p>
+    <div class="gallery" id="grid"></div>
+  </section>
+
+  <section id="install">
+    <h2>Install</h2>
+    <p class="sub">Pick the one that fits your agent. Python 3 is the only requirement.</p>
+    <div class="install">
+      <div class="card"><h3>Claude Code plugin</h3><p>Adds the drawing skill.</p>
+<pre>/plugin marketplace add lucas19919/diagonaldiagrams
+/plugin install diagonaldiagrams@diagonaldiagrams</pre></div>
+      <div class="card"><h3>Any agent, as a command</h3><p>Puts <code>diagonaldiagrams</code> on PATH.</p>
+<pre>pip install git+https://github.com/lucas19919/diagonaldiagrams</pre></div>
+      <div class="card"><h3>As MCP tools</h3><p>Six tools: render, describe, validate, audit, export, infer. <code>render</code> takes the spec inline.</p>
+<pre>claude mcp add --scope user diagonaldiagrams -- diagonaldiagrams mcp</pre></div>
+    </div>
+    <h3 style="margin:28px 0 6px">One command</h3>
+<pre>diagonaldiagrams mermaid flow.mmd -o out/flow.svg
+{"ok": true, "svg": "out/flow.svg", "items": 9,
+ "layout": ["row 1: Agent writes a spec", "row 2: Check the spec", "row 3: Valid? (decision)", ...]}</pre>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <div class="figure narrow"><img src="gallery/how-it-works.svg" alt="Flowchart: an agent writes a spec, the engine checks it, lays it out and draws it, audits the drawing, repairs the layout if needed, and returns the SVG, HTML, and receipt"></div>
+  </section>
+</main>
+
+<footer><div class="wrap">MIT licensed · <a href="https://github.com/lucas19919/diagonaldiagrams">github.com/lucas19919/diagonaldiagrams</a></div></footer>
+
+<script>
+const PRESETS = {
+  loop: ["mermaid", `---
+title: How a figure is made
+---
+flowchart TD
+  A([Agent writes a spec]) --> B[Check the spec]
+  B --> C{Valid?}
+  C -->|no| X[Errors with a fix]
+  C -->|yes| D[Lay out and draw]
+  D --> E[Audit the drawing]
+  E --> F{Clean?}
+  F -- no --> G[Repair the layout]
+  G -.-> E
+  F ==>|yes| H([SVG, HTML, receipt])
+  X -.-> A`],
+  groups: ["mermaid", `flowchart TD
+  subgraph clients [Clients]
+    web[fa:fa-desktop Web app] & mobile[fa:fa-mobile Mobile app]
+  end
+  web --> gw[fa:fa-shield API gateway]
+  mobile --> gw
+  gw --> auth[Auth] & orders[Orders]:::focal
+  subgraph data [Data]
+    pg[(fa:fa-database Postgres)]
+    redis[(Redis)]
+  end
+  auth --> redis
+  orders --> pg
+  orders -.->|OrderPlaced| bus[[Event bus]]`],
+  seq: ["mermaid", `sequenceDiagram
+  actor U as User
+  participant GW as API Gateway
+  participant A as Auth
+  participant O as Orders
+  U->>GW: POST /checkout
+  GW->>A: verify token
+  A-->>GW: ok
+  GW->>O: create order
+  O-->>GW: 201 Created
+  GW-->>U: 201 Created`],
+  er: ["mermaid", `erDiagram
+  CUSTOMER ||--o{ ORDER : places
+  ORDER ||--|{ LINE_ITEM : contains
+  PRODUCT ||--o{ LINE_ITEM : "ordered in"
+  CUSTOMER {
+    uuid id PK
+    string email UK
+  }
+  ORDER {
+    uuid id PK
+    uuid customer_id FK
+  }`],
+  json: ["flow", JSON.stringify({
+    title: "Deploy", nodes: [
+      {id: "push", name: "Push", shape: "oval"},
+      {id: "risky", name: "Risky?", shape: "diamond"},
+      {id: "review", name: "Review", sub: "owner", lane: 1},
+      {id: "ship", name: "Ship", shape: "oval"}],
+    edges: [{from: "push", to: "risky"}, {from: "risky", to: "review", label: "yes"},
+            {from: "risky", to: "ship", label: "no"}, {from: "review", to: "ship"}]}, null, 1)],
+};
+const $ = (id) => document.getElementById(id);
+function usePreset(key) {
+  const [kind, text] = PRESETS[key];
+  $("kind").value = kind;
+  $("src").value = text;
+}
+$("preset").addEventListener("change", (e) => usePreset(e.target.value));
+usePreset("loop");
+
+let py = null;
+async function boot() {
+  try {
+    const s = document.createElement("script");
+    s.src = "https://cdn.jsdelivr.net/pyodide/v0.27.2/full/pyodide.js";
+    await new Promise((ok, bad) => { s.onload = ok; s.onerror = bad; document.head.appendChild(s); });
+    py = await loadPyodide();
+    const src = await (await fetch("graph.py")).text();
+    py.FS.writeFile("/graph.py", src);
+    py.FS.mkdirTree("/out");
+    py.runPython("import sys; sys.path.insert(0, '/'); import graph");
+    $("status").textContent = "ready";
+    $("go").disabled = false;
+    $("go").textContent = "Render";
+    render();
+  } catch (err) {
+    $("status").textContent = "could not load Python in this browser";
+    $("go").textContent = "Unavailable";
+  }
+}
+
+function esc(s) { return s.replace(/[&<>]/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;"}[c])); }
+
+function render() {
+  if (!py) return;
+  const kind = $("kind").value;
+  const ext = kind === "mermaid" ? ".mmd" : ".json";
+  py.FS.writeFile("/in" + ext, $("src").value);
+  py.globals.set("ARGV", py.toPy(["graph", kind, "/in" + ext, "-o", "/out/fig.svg"]));
+  const raw = py.runPython(`
+import io, sys, json, contextlib, os
+buf = io.StringIO()
+sys.argv = list(ARGV)
+for f in ("/out/fig.svg",):
+    if os.path.exists(f):
+        os.remove(f)
+try:
+    with contextlib.redirect_stdout(buf):
+        graph.cli()
+except SystemExit:
+    pass
+buf.getvalue()
+`);
+  let rep;
+  try { rep = JSON.parse(raw.trim().split("\n").pop()); } catch (e) { rep = {ok: false, errors: [{msg: raw.trim() || "no reply"}]}; }
+  let svg = "";
+  try { svg = py.FS.readFile("/out/fig.svg", {encoding: "utf8"}); } catch (e) {}
+  $("out").innerHTML = svg;
+  const lines = [];
+  lines.push(rep.ok ? '<span class="ok">ok</span> · passed the audit' : '<span class="bad">not ok</span>' + (rep.stage ? " · " + rep.stage : " · audit"));
+  for (const e of rep.errors || []) lines.push("✗ " + esc(e.msg) + (e.fix ? "\n  fix: " + esc(e.fix) : ""));
+  for (const w of rep.warnings || []) lines.push("! " + esc(w.msg));
+  for (const l of rep.layout || []) lines.push("  " + esc(l));
+  $("verdict").innerHTML = lines.join("\n");
+}
+$("go").addEventListener("click", render);
+boot();
+
+fetch("gallery.json").then((r) => r.json()).then((items) => {
+  $("grid").innerHTML = items.map((g) =>
+    `<figure><a href="${g.file}"><img src="${g.file}" alt="${esc(g.caption)}" loading="lazy"></a>` +
+    `<figcaption>${esc(g.caption)}<br><code>${esc(g.source)}</code></figcaption></figure>`).join("");
+}).catch(() => {});
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+---
+title: Checkout, one request
+---
+sequenceDiagram
+    actor U as User
+    participant GW as API Gateway
+    participant A as Auth
+    participant O as Orders
+    participant P as Payments
+    U->>GW: POST /checkout
+    GW->>A: verify token
+    A-->>GW: ok
+    GW->>O: create order
+    O-)P: OrderCreated
+    O-->>GW: 201 Created
+    GW-->>U: 201 Created

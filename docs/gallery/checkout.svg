@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 1100 849" width="1100"><title>Checkout platform</title>
+<desc>A checkout writes one order row, then everything downstream hangs off events.</desc>
+<rect width="1100" height="849" fill="#f5f5f5"/>
+<defs><marker id="a" markerWidth="12" markerHeight="9" refX="11" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,12 4.5,0 9" fill="#4f5d75"/></marker><marker id="aa" markerWidth="12" markerHeight="9" refX="11" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,12 4.5,0 9" fill="#eb6c36"/></marker><marker id="al" markerWidth="12" markerHeight="9" refX="11" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,12 4.5,0 9" fill="#2e5aa8"/></marker><marker id="ar" markerWidth="12" markerHeight="9" refX="11" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,12 4.5,0 9" fill="#7a8399"/></marker></defs>
+<text x="30" y="26" font-size="18" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">Checkout platform</text>
+<text x="30" y="44" font-size="13" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75">A checkout writes one order row, then everything downstream hangs off events.</text>
+<rect x="286.6666666666667" y="70.5" width="160" height="59" rx="6" fill="#f5f5f5"/>
+<rect x="286.6666666666667" y="70.5" width="160" height="59" rx="6" fill="#ffffff" stroke="#2d3142" data-node="web" data-label="Web app"/>
+<rect x="294.6666666666667" y="76.5" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="308.6666666666667" y="85.5" font-size="8" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">UI</text>
+<text x="366.6666666666667" y="102.5" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">Web app</text>
+<text x="366.6666666666667" y="119.5" font-size="9" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">React</text>
+<rect x="653.3333333333334" y="70.5" width="160" height="59" rx="6" fill="#f5f5f5"/>
+<rect x="653.3333333333334" y="70.5" width="160" height="59" rx="6" fill="#ffffff" stroke="#2d3142" data-node="mobile" data-label="Mobile app"/>
+<rect x="661.3333333333334" y="76.5" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="675.3333333333334" y="85.5" font-size="8" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">UI</text>
+<text x="733.3333333333334" y="102.5" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">Mobile app</text>
+<text x="733.3333333333334" y="119.5" font-size="9" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">Swift</text>
+<rect x="470.0" y="229.5" width="160" height="59" rx="6" fill="#f5f5f5"/>
+<rect x="470.0" y="229.5" width="160" height="59" rx="6" fill="#ffffff" stroke="#2d3142" data-node="gw" data-label="API gateway"/>
+<rect x="478.0" y="235.5" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="492.0" y="244.5" font-size="8" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">API</text>
+<text x="550.0" y="261.5" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">API gateway</text>
+<text x="550.0" y="278.5" font-size="9" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">Envoy:443</text>
+<rect x="140.0" y="388.5" width="160" height="59" rx="6" fill="#f5f5f5"/>
+<rect x="140.0" y="388.5" width="160" height="59" rx="6" fill="#ffffff" stroke="#2d3142" data-node="auth" data-label="Auth"/>
+<rect x="148.0" y="394.5" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="162.0" y="403.5" font-size="8" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">SVC</text>
+<text x="220.0" y="420.5" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">Auth</text>
+<text x="220.0" y="437.5" font-size="9" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">Go:8081</text>
+<rect x="360.0" y="388.5" width="160" height="59" rx="6" fill="#f5f5f5"/>
+<rect x="360.0" y="388.5" width="160" height="59" rx="6" fill="#ffffff" stroke="#2d3142" data-node="catalog" data-label="Catalog"/>
+<rect x="368.0" y="394.5" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="382.0" y="403.5" font-size="8" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">SVC</text>
+<text x="440.0" y="420.5" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">Catalog</text>
+<text x="440.0" y="437.5" font-size="9" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">Go:8082</text>
+<rect x="580.0" y="388.5" width="160" height="59" rx="6" fill="#f5f5f5"/>
+<rect x="580.0" y="388.5" width="160" height="59" rx="6" fill="rgba(235,108,54,0.08)" stroke="#eb6c36" data-node="orders" data-label="Orders"/>
+<rect x="588.0" y="394.5" width="28" height="12" rx="2" fill="none" stroke="#eb6c36" stroke-opacity=".4" stroke-width=".8"/>
+<text x="602.0" y="403.5" font-size="8" font-family="system-ui, 'Segoe UI', sans-serif" fill="#eb6c36" text-anchor="middle">SVC</text>
+<text x="660.0" y="420.5" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">Orders</text>
+<text x="660.0" y="437.5" font-size="9" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">Kotlin:8083</text>
+<rect x="800.0" y="388.5" width="160" height="59" rx="6" fill="#f5f5f5"/>
+<rect x="800.0" y="388.5" width="160" height="59" rx="6" fill="rgba(235,108,54,0.08)" stroke="#eb6c36" data-node="pay" data-label="Payments"/>
+<rect x="808.0" y="394.5" width="28" height="12" rx="2" fill="none" stroke="#eb6c36" stroke-opacity=".4" stroke-width=".8"/>
+<text x="822.0" y="403.5" font-size="8" font-family="system-ui, 'Segoe UI', sans-serif" fill="#eb6c36" text-anchor="middle">SVC</text>
+<text x="880.0" y="420.5" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">Payments</text>
+<text x="880.0" y="437.5" font-size="9" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">Kotlin:8084</text>
+<rect x="140.0" y="547.5" width="160" height="59" rx="6" fill="#f5f5f5"/>
+<rect x="140.0" y="547.5" width="160" height="59" rx="6" fill="#ffffff" stroke="#2d3142" data-node="redis" data-label="Redis"/>
+<rect x="148.0" y="553.5" width="35" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="165.5" y="562.5" font-size="8" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">STORE</text>
+<text x="220.0" y="579.5" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">Redis</text>
+<text x="220.0" y="596.5" font-size="9" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">sessions, cache</text>
+<rect x="360.0" y="547.5" width="160" height="59" rx="6" fill="#f5f5f5"/>
+<rect x="360.0" y="547.5" width="160" height="59" rx="6" fill="#ffffff" stroke="#2d3142" data-node="pg" data-label="Postgres"/>
+<rect x="368.0" y="553.5" width="35" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="385.5" y="562.5" font-size="8" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">STORE</text>
+<text x="440.0" y="579.5" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">Postgres</text>
+<text x="440.0" y="596.5" font-size="9" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">orders, ledger</text>
+<rect x="580.0" y="547.5" width="160" height="59" rx="6" fill="#f5f5f5"/>
+<rect x="580.0" y="547.5" width="160" height="59" rx="6" fill="#ffffff" stroke="#2d3142" data-node="bus" data-label="Event bus"/>
+<rect x="588.0" y="553.5" width="35" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="605.5" y="562.5" font-size="8" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">STORE</text>
+<text x="660.0" y="579.5" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">Event bus</text>
+<text x="660.0" y="596.5" font-size="9" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">Kafka</text>
+<rect x="800.0" y="547.5" width="160" height="59" rx="6" fill="#f5f5f5"/>
+<rect x="800.0" y="547.5" width="160" height="59" rx="6" fill="#ffffff" stroke="#2d3142" data-node="stripe" data-label="Stripe"/>
+<rect x="808.0" y="553.5" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="822.0" y="562.5" font-size="8" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">API</text>
+<text x="880.0" y="579.5" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">Stripe</text>
+<text x="880.0" y="596.5" font-size="9" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">external</text>
+<rect x="195.0" y="706.5" width="160" height="59" rx="6" fill="#f5f5f5"/>
+<rect x="195.0" y="706.5" width="160" height="59" rx="6" fill="#ffffff" stroke="#2d3142" data-node="inventory" data-label="Inventory"/>
+<rect x="203.0" y="712.5" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="217.0" y="721.5" font-size="8" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">SVC</text>
+<text x="275.0" y="738.5" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">Inventory</text>
+<text x="275.0" y="755.5" font-size="9" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">reserve stock</text>
+<rect x="470.0" y="706.5" width="160" height="59" rx="6" fill="#f5f5f5"/>
+<rect x="470.0" y="706.5" width="160" height="59" rx="6" fill="#ffffff" stroke="#2d3142" data-node="notify" data-label="Notifications"/>
+<rect x="478.0" y="712.5" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="492.0" y="721.5" font-size="8" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">SVC</text>
+<text x="550.0" y="738.5" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">Notifications</text>
+<text x="550.0" y="755.5" font-size="9" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">email, push</text>
+<rect x="745.0" y="706.5" width="160" height="59" rx="6" fill="#f5f5f5"/>
+<rect x="745.0" y="706.5" width="160" height="59" rx="6" fill="#ffffff" stroke="#2d3142" data-node="analytics" data-label="Analytics"/>
+<rect x="753.0" y="712.5" width="35" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity=".4" stroke-width=".8"/>
+<text x="770.5" y="721.5" font-size="8" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">STORE</text>
+<text x="825.0" y="738.5" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">Analytics</text>
+<text x="825.0" y="755.5" font-size="9" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">ClickHouse</text>
+<path d="M378.7,129.5 L378.7,171.5 Q378.7,179.5 386.7,179.5 L531.0,179.5 Q539.0,179.5 539.0,187.5 L539.0,229.5" fill="none" stroke="#2e5aa8" stroke-width="1.8" marker-end="url(#al)" data-from="web" data-to="gw" data-label="calls"/>
+<circle cx="378.7" cy="136.5" r="2.7" fill="#2e5aa8"/>
+<path d="M721.3,129.5 L721.3,171.5 Q721.3,179.5 713.3,179.5 L569.0,179.5 Q561.0,179.5 561.0,187.5 L561.0,229.5" fill="none" stroke="#2e5aa8" stroke-width="1.8" marker-end="url(#al)" data-from="mobile" data-to="gw" data-label="calls"/>
+<circle cx="721.3" cy="136.5" r="2.7" fill="#2e5aa8"/>
+<path d="M528.0,288.5 L528.0,323.5 Q528.0,331.5 520.0,331.5 L240.0,331.5 Q232.0,331.5 232.0,339.5 L232.0,388.5" fill="none" stroke="#2e5aa8" stroke-width="1.8" marker-end="url(#al)" data-from="gw" data-to="auth" data-label="verify"/>
+<circle cx="528.0" cy="295.5" r="2.7" fill="#2e5aa8"/>
+<path d="M550.0,288.5 L550.0,337.5 Q550.0,345.5 542.0,345.5 L460.0,345.5 Q452.0,345.5 452.0,353.5 L452.0,388.5" fill="none" stroke="#2e5aa8" stroke-width="1.8" marker-end="url(#al)" data-from="gw" data-to="catalog" data-label="browse"/>
+<circle cx="550.0" cy="295.5" r="2.7" fill="#2e5aa8"/>
+<path d="M572.0,288.5 L572.0,323.5 Q572.0,331.5 580.0,331.5 L640.0,331.5 Q648.0,331.5 648.0,339.5 L648.0,388.5" fill="none" stroke="#2e5aa8" stroke-width="1.8" marker-end="url(#al)" data-from="gw" data-to="orders" data-label="checkout"/>
+<circle cx="572.0" cy="295.5" r="2.7" fill="#2e5aa8"/>
+<path d="M740.0,418.0 L800.0,418.0" fill="none" stroke="#eb6c36" stroke-width="1.8" marker-end="url(#aa)" data-from="orders" data-to="pay" data-label="charge"/>
+<circle cx="747.0" cy="418.0" r="2.7" fill="#eb6c36"/>
+<path d="M220.0,447.5 L220.0,471.0 Q220.0,476.5 214.5,476.5 L214.5,476.5 Q209.0,476.5 209.0,482.0 L209.0,547.5" fill="none" stroke="#4f5d75" stroke-width="1.8" marker-end="url(#a)" data-from="auth" data-to="redis" data-label="session"/>
+<circle cx="220.0" cy="454.5" r="2.7" fill="#4f5d75"/>
+<path d="M428.0,447.5 L428.0,482.5 Q428.0,490.5 420.0,490.5 L239.0,490.5 Q231.0,490.5 231.0,498.5 L231.0,547.5" fill="none" stroke="#4f5d75" stroke-width="1.8" marker-end="url(#a)" data-from="catalog" data-to="redis" data-label="cache"/>
+<circle cx="428.0" cy="454.5" r="2.7" fill="#4f5d75"/>
+<path d="M649.0,447.5 L649.0,468.5 Q649.0,476.5 641.0,476.5 L460.0,476.5 Q452.0,476.5 452.0,484.5 L452.0,547.5" fill="none" stroke="#4f5d75" stroke-width="1.8" marker-end="url(#a)" data-from="orders" data-to="pg" data-label="write"/>
+<circle cx="649.0" cy="454.5" r="2.7" fill="#4f5d75"/>
+<path d="M671.0,447.5 L671.0,482.5 Q671.0,490.5 663.0,490.5 L657.0,490.5 Q649.0,490.5 649.0,498.5 L649.0,547.5" fill="none" stroke="#4f5d75" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#a)" data-from="orders" data-to="bus" data-label="placed"/>
+<circle cx="671.0" cy="454.5" r="2.7" fill="#4f5d75"/>
+<path d="M891.0,447.5 L891.0,513.0 Q891.0,518.5 885.5,518.5 L885.5,518.5 Q880.0,518.5 880.0,524.0 L880.0,547.5" fill="none" stroke="#2e5aa8" stroke-width="1.8" marker-end="url(#al)" data-from="pay" data-to="stripe" data-label="card"/>
+<circle cx="891.0" cy="454.5" r="2.7" fill="#2e5aa8"/>
+<path d="M869.0,447.5 L869.0,496.5 Q869.0,504.5 861.0,504.5 L679.0,504.5 Q671.0,504.5 671.0,512.5 L671.0,547.5" fill="none" stroke="#4f5d75" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#a)" data-from="pay" data-to="bus" data-label="settled"/>
+<circle cx="869.0" cy="454.5" r="2.7" fill="#4f5d75"/>
+<path d="M638.0,606.5 L638.0,641.5 Q638.0,649.5 630.0,649.5 L295.0,649.5 Q287.0,649.5 287.0,657.5 L287.0,706.5" fill="none" stroke="#4f5d75" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#a)" data-from="bus" data-to="inventory" data-label="reserve"/>
+<circle cx="638.0" cy="613.5" r="2.7" fill="#4f5d75"/>
+<path d="M660.0,606.5 L660.0,655.5 Q660.0,663.5 652.0,663.5 L570.0,663.5 Q562.0,663.5 562.0,671.5 L562.0,706.5" fill="none" stroke="#4f5d75" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#a)" data-from="bus" data-to="notify" data-label="email"/>
+<circle cx="660.0" cy="613.5" r="2.7" fill="#4f5d75"/>
+<path d="M682.0,606.5 L682.0,641.5 Q682.0,649.5 690.0,649.5 L805.0,649.5 Q813.0,649.5 813.0,657.5 L813.0,706.5" fill="none" stroke="#4f5d75" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#a)" data-from="bus" data-to="analytics" data-label="ingest"/>
+<circle cx="682.0" cy="613.5" r="2.7" fill="#4f5d75"/>
+<rect x="436.83333333333337" y="155.5" width="44" height="16" rx="2" fill="#f5f5f5"/><text x="458.83333333333337" y="167.5" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">CALLS</text>
+<rect x="619.1666666666667" y="155.5" width="44" height="16" rx="2" fill="#f5f5f5"/><text x="641.1666666666667" y="167.5" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">CALLS</text>
+<rect x="355.0" y="307.5" width="50" height="16" rx="2" fill="#f5f5f5"/><text x="380.0" y="319.5" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">VERIFY</text>
+<rect x="476.0" y="353.5" width="50" height="16" rx="2" fill="#f5f5f5"/><text x="501.0" y="365.5" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">BROWSE</text>
+<rect x="578.5" y="307.5" width="63" height="16" rx="2" fill="#f5f5f5"/><text x="610.0" y="319.5" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">CHECKOUT</text>
+<rect x="745.0" y="394.0" width="50" height="16" rx="2" fill="#f5f5f5"/><text x="770.0" y="406.0" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">CHARGE</text>
+<rect x="145.0" y="495.0" width="56" height="16" rx="2" fill="#f5f5f5"/><text x="173.0" y="507.0" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">SESSION</text>
+<rect x="307.5" y="466.5" width="44" height="16" rx="2" fill="#f5f5f5"/><text x="329.5" y="478.5" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">CACHE</text>
+<rect x="528.5" y="452.5" width="44" height="16" rx="2" fill="#f5f5f5"/><text x="550.5" y="464.5" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">WRITE</text>
+<rect x="591.0" y="502.0" width="50" height="16" rx="2" fill="#f5f5f5"/><text x="616.0" y="514.0" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">PLACED</text>
+<rect x="899.0" y="482.0" width="40" height="16" rx="2" fill="#f5f5f5"/><text x="919.0" y="494.0" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">CARD</text>
+<rect x="742.0" y="480.5" width="56" height="16" rx="2" fill="#f5f5f5"/><text x="770.0" y="492.5" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">SETTLED</text>
+<rect x="434.5" y="625.5" width="56" height="16" rx="2" fill="#f5f5f5"/><text x="462.5" y="637.5" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">RESERVE</text>
+<rect x="589.0" y="671.5" width="44" height="16" rx="2" fill="#f5f5f5"/><text x="611.0" y="683.5" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">EMAIL</text>
+<rect x="722.5" y="625.5" width="50" height="16" rx="2" fill="#f5f5f5"/><text x="747.5" y="637.5" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75" text-anchor="middle">INGEST</text>
+<line x1="30" y1="801" x2="1070" y2="801" stroke="rgba(45,49,66,0.12)" stroke-width=".8"/>
+<text x="30" y="817" font-size="11" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75">blue = http, dashed = async, coral = focal</text>
+</svg>

@@ -1,22 +1,21 @@
 # graph — agent skill
 
 Graphing library for agents. `graph.py` is Python 3, standard library only.
-Install with the `graphflow-install` skill, then draw with the commands below.
+Install with the `diagonaldiagrams-install` skill, then draw with the commands below.
 Same spec, same SVG.
 
-## The loop (always in this order)
+## The loop
 
 ```
-1. infer    py graph.py infer DATA.csv                    # column roles → starter spec
-2. describe py graph.py describe scatter|flow|arch        # minimal schema for the type
-3. validate py graph.py validate SPEC.json|DATA.csv       # MUST pass before render (exit 0)
-4. render   py graph.py scatter|flow|arch ... -o out/x.html
-5. audit    py graph.py audit out/x.svg                   # MUST pass (exit 0); fix, re-render
-6. export   py graph.py export out/x --to png --layout wide
+py graph.py <type> SPEC.json|DATA.csv [flags] -o out/x.html
 ```
 
-Every step speaks JSON (except render/export, which write files). Chain on exit
-codes. Never hand-edit the SVG — fix the spec or flags and re-render.
+Render validates first, draws, then audits the SVG, and prints one JSON line.
+Exit 0 and `"ok": true`: done. Exit 1: read `errors` (each has a `fix`), change
+the spec or flags, render again. Never hand-edit the SVG. `--no-audit` accepts a
+figure the audit flags. `describe <type>` is the contract, `infer DATA.csv`
+proposes a scatter spec, and `export out/x --to png --layout wide` redraws from
+the receipt. `validate` and `audit` also run alone; `audit` reads any SVG.
 
 ## Recipes
 
@@ -47,11 +46,21 @@ py graph.py geo cities.csv --lat lat --lon lon --label city --val people_m -o ou
 
 # codebase → architecture view (one C4 level per render)
 py graph.py arch containers.json -o out/arch.html
+
+# math → 2D curves from an equation. describe math prints the language.
+py graph.py validate math.json --type math
+py graph.py chart math math.json -o out/math.html
+
+# the rest of the taxonomy. describe prints the columns or the JSON shape.
+py graph.py describe sankey
+py graph.py chart sankey flows.csv -o out/sankey.html
+py graph.py chart gantt plan.json -o out/gantt.html
+py graph.py chart choropleth regions.geojson -o out/regions.html
 ```
 
 ## Hard budgets (validate enforces, audit double-checks)
 
-A flow or architecture spec may set `"budget": false` to lift the node and edge counts. Focal stays at two. The row widens so the boxes still sit apart.
+A flow or architecture spec may set `"budget": false` to lift the node and edge counts. Focal stays at two. The row widens so the boxes still sit apart. `chart` types have their own caps. `--no-budget`, or `"budget": false` on a JSON spec, lifts that cap.
 
 | rule | limit | over → |
 |---|---|---|
@@ -76,8 +85,9 @@ A flow or architecture spec may set `"budget": false` to lift the node and edge 
 
 ## MCP
 
-`py graph.py mcp` serves the same loop as tools
-(describe/validate/infer/audit/scatter/diagram/bar/line) over stdio for MCP clients.
+`py graph.py mcp` serves the same loop over stdio as six tools: describe, render,
+validate, audit, export, infer. `render` takes `spec` (JSON object) or `data` (CSV
+text) inline plus `options` (the CLI flags), so one call draws and audits a figure.
 
 `py graph.py doc DOC.md --out-dir assets [--check]` compiles fenced
 ```graph:<type> blocks to SVGs (+ `--check` for CI).

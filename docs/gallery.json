@@ -1,0 +1,42 @@
+[
+ {
+  "file": "gallery/how-it-works.svg",
+  "caption": "How a figure is made: written in Mermaid, loops drawn back up the outside.",
+  "source": "examples/how_it_works.mmd"
+ },
+ {
+  "file": "gallery/checkout.svg",
+  "caption": "Fourteen services, sync and async: every arrow on its own path.",
+  "source": "examples/checkout_platform.json"
+ },
+ {
+  "file": "gallery/checkout-grouped.svg",
+  "caption": "The same system with frames: each holds only its members.",
+  "source": "examples/checkout_groups.json"
+ },
+ {
+  "file": "gallery/deploy.svg",
+  "caption": "A decision flow: yes goes right, retry loops round the outside.",
+  "source": "examples/flow_decision.json"
+ },
+ {
+  "file": "gallery/sequence.svg",
+  "caption": "A request over time, from a Mermaid sequenceDiagram.",
+  "source": "examples/checkout_sequence.mmd"
+ },
+ {
+  "file": "gallery/data-model.svg",
+  "caption": "A data model from a Mermaid erDiagram.",
+  "source": "examples/shop_er.mmd"
+ },
+ {
+  "file": "gallery/icons.svg",
+  "caption": "Built-in icons, from Mermaid's fa: names.",
+  "source": "examples/icons.mmd"
+ },
+ {
+  "file": "gallery/signups.svg",
+  "caption": "A line chart labels each series at its end.",
+  "source": "examples/signups.csv"
+ }
+]

@@ -1,0 +1,17 @@
+{
+  "name": "diagonaldiagrams",
+  "description": "diagonaldiagrams: charts and diagrams for agents, as SVG, with a layout audit.",
+  "owner": {
+    "name": "Lucas Reimers",
+    "url": "https://github.com/lucas19919"
+  },
+  "plugins": [
+    {
+      "name": "diagonaldiagrams",
+      "source": "./",
+      "description": "Charts and diagrams for agents. One command checks the spec, draws an SVG, and audits the layout for collisions.",
+      "category": "productivity",
+      "tags": ["charts", "diagrams", "svg"]
+    }
+  ]
+}

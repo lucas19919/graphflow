@@ -1,0 +1,14 @@
+{
+  "title": "A sine, a line, and a circle",
+  "sub": "y = sin x, y = 0.3x, and x^2 + y^2 = 4",
+  "xmin": -6.5,
+  "xmax": 6.5,
+  "ymin": -4,
+  "ymax": 4,
+  "equal": true,
+  "equations": [
+    {"expr": "y = sin(x)", "name": "sin"},
+    {"expr": "y = 0.3x", "name": "line"},
+    {"expr": "x^2 + y^2 = 4", "name": "circle"}
+  ]
+}

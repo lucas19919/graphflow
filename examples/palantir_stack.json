@@ -1,0 +1,33 @@
+{
+  "title": "Palantir, from data to AIP",
+  "sub": "Foundry carries data into the ontology. AIP reads and acts. Apollo deploys both on Rubix.",
+  "budget": false,
+  "nodes": [
+    {"id": "models", "name": "Models", "sub": "registered LLMs", "tag": "LLM", "layer": 0},
+    {"id": "logic", "name": "AIP Logic", "sub": "LLM and tools", "tag": "AIP", "layer": 0, "focal": true},
+    {"id": "evals", "name": "AIP Evals", "sub": "tests the agents", "tag": "AIP", "layer": 0},
+    {"id": "workshop", "name": "Workshop", "sub": "operational apps", "tag": "APP", "layer": 1},
+    {"id": "ontology", "name": "Ontology", "sub": "data, logic, action", "tag": "ONT", "layer": 1, "focal": true},
+    {"id": "automate", "name": "Automate", "sub": "conditions", "tag": "APP", "layer": 1},
+    {"id": "functions", "name": "Functions", "sub": "logic on objects", "tag": "FN", "layer": 2},
+    {"id": "funnel", "name": "Object Funnel", "sub": "into storage v2", "tag": "IDX", "layer": 2},
+    {"id": "builder", "name": "Pipeline Builder", "sub": "Spark and Flink", "tag": "PB", "layer": 2},
+    {"id": "sources", "name": "Sources", "sub": "ERP, files, sensors", "tag": "SRC", "layer": 3},
+    {"id": "connect", "name": "Data Connection", "sub": "worker or agent", "tag": "DC", "layer": 3},
+    {"id": "datasets", "name": "Datasets", "sub": "tables and streams", "tag": "DS", "layer": 3}
+  ],
+  "edges": [
+    {"from": "sources", "to": "connect", "label": "sync"},
+    {"from": "connect", "to": "datasets", "label": "land"},
+    {"from": "datasets", "to": "builder", "label": "build"},
+    {"from": "builder", "to": "funnel", "label": "index"},
+    {"from": "funnel", "to": "ontology", "label": "store"},
+    {"from": "functions", "to": "workshop", "label": "logic"},
+    {"from": "ontology", "to": "workshop", "label": "run"},
+    {"from": "ontology", "to": "logic", "label": "ground"},
+    {"from": "ontology", "to": "automate", "label": "watch"},
+    {"from": "logic", "to": "models", "label": "call"},
+    {"from": "logic", "to": "evals", "label": "score"},
+    {"from": "logic", "to": "ontology", "label": "act", "async": true}
+  ]
+}

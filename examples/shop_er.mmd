@@ -1,0 +1,25 @@
+---
+title: Shop data model
+---
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE_ITEM : contains
+    PRODUCT ||--o{ LINE_ITEM : "ordered in"
+    CUSTOMER {
+        uuid id PK
+        string email UK
+    }
+    ORDER {
+        uuid id PK
+        uuid customer_id FK
+        int total_cents
+    }
+    LINE_ITEM {
+        uuid order_id FK
+        uuid product_id FK
+        int quantity
+    }
+    PRODUCT {
+        uuid id PK
+        string sku UK
+    }

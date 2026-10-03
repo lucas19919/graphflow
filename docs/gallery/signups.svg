@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 760 480" width="760"><title>Atlas more than doubled while Beacon declined</title>
+<desc>Monthly signups per product, January to June 2026</desc>
+<rect width="760" height="480" fill="#ffffff"/>
+<text x="36" y="26" font-size="18" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142">Atlas more than doubled while Beacon declined</text>
+<text x="36" y="44" font-size="13" font-family="system-ui, 'Segoe UI', sans-serif" fill="#4f5d75">Monthly signups per product, January to June 2026</text>
+<line x1="80" y1="380.0" x2="676" y2="380.0" stroke="rgba(45,49,66,0.12)" stroke-width="0.8"/>
+<text x="70" y="384.0" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">0</text>
+<line x1="80" y1="300.0" x2="676" y2="300.0" stroke="rgba(45,49,66,0.12)" stroke-width="0.8"/>
+<text x="70" y="304.0" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">100</text>
+<line x1="80" y1="220.0" x2="676" y2="220.0" stroke="rgba(45,49,66,0.12)" stroke-width="0.8"/>
+<text x="70" y="224.0" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">200</text>
+<line x1="80" y1="140.0" x2="676" y2="140.0" stroke="rgba(45,49,66,0.12)" stroke-width="0.8"/>
+<text x="70" y="144.0" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">300</text>
+<line x1="80" y1="60.0" x2="676" y2="60.0" stroke="rgba(45,49,66,0.12)" stroke-width="0.8"/>
+<text x="70" y="64.0" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="end">400</text>
+<line x1="80.0" y1="60" x2="80.0" y2="380" stroke="rgba(45,49,66,0.12)" stroke-width="0.8"/>
+<text x="80.0" y="398" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="middle">2026-01</text>
+<line x1="199.2" y1="60" x2="199.2" y2="380" stroke="rgba(45,49,66,0.12)" stroke-width="0.8"/>
+<text x="199.2" y="398" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="middle">2026-02</text>
+<line x1="318.4" y1="60" x2="318.4" y2="380" stroke="rgba(45,49,66,0.12)" stroke-width="0.8"/>
+<text x="318.4" y="398" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="middle">2026-03</text>
+<line x1="437.6" y1="60" x2="437.6" y2="380" stroke="rgba(45,49,66,0.12)" stroke-width="0.8"/>
+<text x="437.6" y="398" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="middle">2026-04</text>
+<line x1="556.8" y1="60" x2="556.8" y2="380" stroke="rgba(45,49,66,0.12)" stroke-width="0.8"/>
+<text x="556.8" y="398" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="middle">2026-05</text>
+<line x1="676.0" y1="60" x2="676.0" y2="380" stroke="rgba(45,49,66,0.12)" stroke-width="0.8"/>
+<text x="676.0" y="398" font-size="10" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399" text-anchor="middle">2026-06</text>
+<line x1="80" y1="380" x2="676" y2="380" stroke="#2d3142" stroke-width="1.2"/>
+<line x1="80" y1="60" x2="80" y2="380" stroke="#2d3142" stroke-width="1.2"/>
+<path d="M80.0,284.0 L199.2,272.0 L318.4,252.0 L437.6,228.0 L556.8,188.0 L676.0,132.0" fill="none" stroke="#0072B2" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="80.0" cy="284.0" r="3.5" fill="#0072B2" stroke="#ffffff" stroke-width="1.2"><title>Atlas · 2026-01: 120</title></circle>
+<circle cx="199.2" cy="272.0" r="3.5" fill="#0072B2" stroke="#ffffff" stroke-width="1.2"><title>Atlas · 2026-02: 135</title></circle>
+<circle cx="318.4" cy="252.0" r="3.5" fill="#0072B2" stroke="#ffffff" stroke-width="1.2"><title>Atlas · 2026-03: 160</title></circle>
+<circle cx="437.6" cy="228.0" r="3.5" fill="#0072B2" stroke="#ffffff" stroke-width="1.2"><title>Atlas · 2026-04: 190</title></circle>
+<circle cx="556.8" cy="188.0" r="3.5" fill="#0072B2" stroke="#ffffff" stroke-width="1.2"><title>Atlas · 2026-05: 240</title></circle>
+<circle cx="676.0" cy="132.0" r="3.5" fill="#0072B2" stroke="#ffffff" stroke-width="1.2"><title>Atlas · 2026-06: 310</title></circle>
+<path d="M80.0,140.0 L199.2,148.0 L318.4,152.0 L437.6,164.0 L556.8,170.4 L676.0,180.0" fill="none" stroke="#E69F00" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="80.0" cy="140.0" r="3.5" fill="#E69F00" stroke="#ffffff" stroke-width="1.2"><title>Beacon · 2026-01: 300</title></circle>
+<circle cx="199.2" cy="148.0" r="3.5" fill="#E69F00" stroke="#ffffff" stroke-width="1.2"><title>Beacon · 2026-02: 290</title></circle>
+<circle cx="318.4" cy="152.0" r="3.5" fill="#E69F00" stroke="#ffffff" stroke-width="1.2"><title>Beacon · 2026-03: 285</title></circle>
+<circle cx="437.6" cy="164.0" r="3.5" fill="#E69F00" stroke="#ffffff" stroke-width="1.2"><title>Beacon · 2026-04: 270</title></circle>
+<circle cx="556.8" cy="170.4" r="3.5" fill="#E69F00" stroke="#ffffff" stroke-width="1.2"><title>Beacon · 2026-05: 262</title></circle>
+<circle cx="676.0" cy="180.0" r="3.5" fill="#E69F00" stroke="#ffffff" stroke-width="1.2"><title>Beacon · 2026-06: 250</title></circle>
+<path d="M80.0,316.0 L199.2,304.0 L318.4,308.0 L437.6,292.0 L556.8,296.0 L676.0,276.0" fill="none" stroke="#009E73" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="80.0" cy="316.0" r="3.5" fill="#009E73" stroke="#ffffff" stroke-width="1.2"><title>Cinder · 2026-01: 80</title></circle>
+<circle cx="199.2" cy="304.0" r="3.5" fill="#009E73" stroke="#ffffff" stroke-width="1.2"><title>Cinder · 2026-02: 95</title></circle>
+<circle cx="318.4" cy="308.0" r="3.5" fill="#009E73" stroke="#ffffff" stroke-width="1.2"><title>Cinder · 2026-03: 90</title></circle>
+<circle cx="437.6" cy="292.0" r="3.5" fill="#009E73" stroke="#ffffff" stroke-width="1.2"><title>Cinder · 2026-04: 110</title></circle>
+<circle cx="556.8" cy="296.0" r="3.5" fill="#009E73" stroke="#ffffff" stroke-width="1.2"><title>Cinder · 2026-05: 105</title></circle>
+<circle cx="676.0" cy="276.0" r="3.5" fill="#009E73" stroke="#ffffff" stroke-width="1.2"><title>Cinder · 2026-06: 130</title></circle>
+<text x="686.0" y="136.0" font-size="11" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#0072B2">Atlas 310</text>
+<text x="686.0" y="184.0" font-size="11" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#E69F00">Beacon 250</text>
+<text x="686.0" y="280.0" font-size="11" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#009E73">Cinder 130</text>
+<text x="378.0" y="420" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle">Month</text>
+<text x="24" y="220.0" font-size="12" font-weight="600" font-family="system-ui, 'Segoe UI', sans-serif" fill="#2d3142" text-anchor="middle" transform="rotate(-90 24,220.0)">Signups per month</text>
+<text x="36" y="466" font-size="10.5" font-family="system-ui, 'Segoe UI', sans-serif" fill="#7a8399">n = 18</text>
+</svg>

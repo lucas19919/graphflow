@@ -1,0 +1,14 @@
+{
+  "name": "diagonaldiagrams",
+  "version": "0.5.0",
+  "description": "Charts and diagrams for agents. One command checks the spec, draws an SVG, and audits the layout for collisions.",
+  "author": {
+    "name": "Lucas Reimers",
+    "url": "https://github.com/lucas19919"
+  },
+  "homepage": "https://github.com/lucas19919/diagonaldiagrams",
+  "repository": "https://github.com/lucas19919/diagonaldiagrams",
+  "license": "MIT",
+  "keywords": ["charts", "diagrams", "svg", "flowchart", "sequence-diagram", "visualization"],
+  "skills": ["./.agents/skills/graph-engine"]
+}

@@ -1,117 +1,108 @@
-# graphflow
+# diagonaldiagrams
 
-Graphing library for agents. An agent passes a CSV or a JSON spec. The library checks the spec, draws the figure, and checks the SVG before the agent shows it.
+Diagrams and charts your agent can draw, and check before it shows you. One command takes a short spec, Mermaid, or a CSV, lays it out, draws an SVG, and audits the drawing for labels on labels, arrows through boxes, and text that spills. The program is `graph.py`: one file, Python 3 standard library only.
 
-The program is `graph.py`. It uses the Python 3 standard library only. Install it by cloning this repository.
+**[Try it in the browser](https://lucas19919.github.io/diagonaldiagrams/)**: the real engine, running locally in your browser, nothing to install.
+
+![A fourteen-service checkout platform, drawn and audited by diagonaldiagrams](https://raw.githubusercontent.com/lucas19919/diagonaldiagrams/master/docs/gallery/checkout.svg)
 
 ## Install
 
-```bash
-git clone https://github.com/lucas19919/graphflow.git
+Claude Code, as a plugin. This adds the drawing skill:
+
+```text
+/plugin marketplace add lucas19919/diagonaldiagrams
+/plugin install diagonaldiagrams@diagonaldiagrams
 ```
 
-Windows:
-
-```powershell
-py -3 graphflow\graph.py describe
-```
-
-Elsewhere:
+Any agent, as a command. This puts `diagonaldiagrams` on PATH:
 
 ```bash
-python3 graphflow/graph.py describe
+pip install git+https://github.com/lucas19919/diagonaldiagrams
 ```
 
-`describe` prints the figure types as JSON. A clean exit means the library is ready.
+As MCP tools (`render`, `describe`, `validate`, `audit`, `export`, `infer`):
 
-Agents should follow `.agents/skills/graphflow-install/SKILL.md`. That skill clones the repository to a stable path, runs the check above, and copies the drawing skill into the agent's user skills folder. Drawing after install is `.agents/skills/graph-engine/SKILL.md`.
+```bash
+claude mcp add --scope user diagonaldiagrams -- diagonaldiagrams mcp
+```
 
-## Figures
+Or clone it and run `py -3 graph.py describe` (Windows) or `python3 graph.py describe`. Agents can follow [`.agents/skills/diagonaldiagrams-install/SKILL.md`](.agents/skills/diagonaldiagrams-install/SKILL.md) to install, and [`.agents/skills/graph-engine/SKILL.md`](.agents/skills/graph-engine/SKILL.md) to draw.
+
+## One command
+
+```text
+diagonaldiagrams mermaid flow.mmd -o out/flow.svg
+{"ok": true, "svg": "out/flow.svg", "html": "out/flow.html", "receipt": "out/flow.graph.json", "items": 9,
+ "layout": ["row 1: Agent writes a spec", "row 2: Check the spec", "row 3: Valid? (decision)", ...]}
+```
+
+It checks the input, draws, audits the drawing, and prints one line of JSON. `ok: false` comes with errors, each with a `fix`; change the input and run it again. `layout` describes the drawn structure, so an agent can confirm it without looking at a picture.
+
+The audit reads the finished SVG: labels on labels, labels too wide for their box or off the canvas, boxes on boxes, arrows through a box or across a label, two arrows on one line, and nodes inside a frame they don't belong to. When it finds a problem it can fix, the layout repairs itself. It reads any SVG, so `diagonaldiagrams audit` also checks a figure an agent wrote by hand.
+
+## Input
 
 | Command | Input | Draws |
 | --- | --- | --- |
-| `flow` | JSON | A decision flow |
+| `mermaid` | Mermaid `flowchart`, `sequenceDiagram`, or `erDiagram` | Picks `flow`, `seq`, or `schema` |
+| `flow` | JSON | A decision flow, with frames (`groups`) and icons |
 | `arch` | JSON | Services and the calls between them |
 | `seq` | JSON | A sequence of messages |
 | `schema` | JSON | Tables and their relations |
-| `bar` | CSV | A comparison across categories |
-| `line` | CSV | A trend |
-| `scatter` | CSV | Two numeric columns, with groups, error bars, and facets |
+| `bar`, `line`, `scatter` | CSV | Comparisons, trends, relationships |
 | `geo` | CSV or GeoJSON | Places on a built-in coastline |
+| `chart <type>` | CSV or JSON | About 60 more: sankey, gantt, heatmap, treemap, box, radar, math, ... |
 
-`describe <type>` is the contract for that type: fields, flags, and size limits.
-
-## Agent loop
-
-Run these in order. Chain on the exit code.
-
-```text
-describe   read the contract for the type
-validate   check the spec or CSV          exit 0 required
-render     flow, arch, seq, schema, bar, line, scatter, or geo
-audit      check the SVG                  exit 0 required
-export     write png, pdf, or svg
-```
-
-When a check fails, change the spec or the flags and render again. Leave the SVG alone.
-
-Command recipes and size limits live in [`SKILL.md`](SKILL.md). The skill an agent loads to draw is [`.agents/skills/graph-engine/SKILL.md`](.agents/skills/graph-engine/SKILL.md).
+`describe <type>` prints the contract for any type. Long names wrap inside their boxes. Loops are drawn back up the outside. Built-in icons (`describe icons`) cover users, databases, servers, queues, and more; in Mermaid, write `fa:fa-database`.
 
 ## Output
 
 | File | Contents |
 | --- | --- |
-| `OUT.html` | The figure, plus Copy SVG, Export SVG, and Export PNG. Print hides that bar. |
-| `OUT.svg` | The same drawing. The title and subtitle are on the figure. |
+| `OUT.svg` | The drawing. Title and subtitle are on the figure; points and bars have hover tooltips. |
+| `OUT.html` | The same figure, plus Copy SVG, Export SVG, and Export PNG. |
 | `OUT.graph.json` | The receipt. `export` redraws from it. |
 
-## Example
+`export OUT --to png|pdf|svg|drawio|excalidraw` writes other formats. draw.io and Excalidraw exports keep boxes, frames, and the routed arrows attached to their boxes, so a person can open the figure and drag things around. PNG and PDF use cairosvg if installed, else headless Edge or Chrome.
 
-```powershell
-py -3 graph.py validate examples/show_canary.json
-py -3 graph.py flow examples/show_canary.json -o out/canary.html
-py -3 graph.py audit out/canary.svg
-py -3 graph.py export out/canary.html --to png -o out/canary.png
-```
+## Measured
 
-## MCP
+The same three tasks, done by fresh agents with diagonaldiagrams and by writing the SVG directly. Total tokens processed across the agent's calls:
 
-```powershell
-py -3 graph.py mcp
-```
+| Task | Hand-written SVG | diagonaldiagrams | Calls |
+| --- | --- | --- | --- |
+| Flowchart, 11 steps | 902k | **433k** | 13 → 7 |
+| Line chart, 3 series | 622k | **295k** | 10 → 5 |
+| Sequence, 6 actors | 757k | **427k** | 11 → 7 |
 
-This speaks MCP over stdio. The tools are `describe`, `validate`, `infer`, `audit`, `scatter`, `diagram`, `bar`, and `line`. Geo, gridlines, markers, and highlights are flags on the CLI.
+Most of an agent's tokens are its own instructions, re-read on every call. The saving comes from fewer calls: the agent writes a short spec and trusts the verdict instead of screenshotting to check.
+
+## Gallery
+
+Every figure was drawn from a file in [`examples/`](examples) and passed its own audit. Rebuild them with `py -3 scripts/build_site.py`.
+
+![How a figure is made](https://raw.githubusercontent.com/lucas19919/diagonaldiagrams/master/docs/gallery/how-it-works.svg)
+
+![Checkout platform with frames](https://raw.githubusercontent.com/lucas19919/diagonaldiagrams/master/docs/gallery/checkout-grouped.svg)
+
+![Checkout request, a sequence diagram](https://raw.githubusercontent.com/lucas19919/diagonaldiagrams/master/docs/gallery/sequence.svg)
+
+![Shop data model](https://raw.githubusercontent.com/lucas19919/diagonaldiagrams/master/docs/gallery/data-model.svg)
+
+![Signups line chart](https://raw.githubusercontent.com/lucas19919/diagonaldiagrams/master/docs/gallery/signups.svg)
 
 ## Tests
 
-```powershell
+```bash
 py -3 tests_smoke.py
 ```
 
 Exit 0 means every check passed.
 
-## Requirements
-
-- Python 3
-- Git, to clone
-- PNG and PDF export uses cairosvg when that module imports. Otherwise it uses headless Microsoft Edge or Google Chrome. SVG export needs neither.
-
 ## License
 
 [MIT](LICENSE)
 
-## Gallery
+<!-- mcp-name: io.github.lucas19919/diagonaldiagrams -->
 
-The counts and latencies in these figures are made up so the shapes are easy to read.
-
-![Canary promotion](gallery/canary.png)
-
-![Retrieval path](gallery/retrieval.png)
-
-![Tool loop](gallery/toolloop.png)
-
-![Training store](gallery/store.png)
-
-![Context cost](gallery/latency.png)
-
-![North Sea calls](gallery/ports.png)
